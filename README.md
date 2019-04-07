@@ -9,7 +9,13 @@ For all the parents looking for new friends, Way To Go Baby also is the way to f
 
 
 ## Technology Used
-HTML | CSS | JAVASCRIPT | EJS | TRELLO | GITHUB | NODE.JS | MONGODB | MONGOOSE | EXPRESS | HEROKU | REACT | 
+HTML | CSS | JAVASCRIPT | TRELLO | GITHUB | NODE.JS | MONGODB | MONGOOSE | EXPRESS | HEROKU | REACT | 
 
-**__Links to Way To Go Baby__**:
+**__Links to Way To Go Baby__**:\
 [Trello Board](https://trello.com/b/esUu9qOy/way-to-go-baby)
+
+## Navigating Way To Go Baby
+
+
+
+## Ice Box
