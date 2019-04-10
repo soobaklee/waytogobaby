@@ -1,0 +1,17 @@
+.Nav {
+    background: var(--primary-color);
+    display: inline;
+    display: flex;
+    flex-wrap: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.Nav li {
+    list-style: none;
+}
+
+.Nav li a{
+    text-decoration: none;
+    color: var(--text-color2);
+}

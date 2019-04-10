@@ -12,3 +12,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+:root {
+  --primary-color: rgb(181, 255, 255);
+  --secondary-color: #DFD2AE;
+  --text-color: rgb(11, 15, 56);
+  --text-color2: rgb(51, 51, 51);
+}
+
+
+/* use like this */
+/* .App-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2vmin;
+  background-color: var(--primary-color);
+  display: flex;PlayDatePagePlayDatePage
+  align-items: center;
+  justify-content: space-between;
+  font-size: 5vmin;
+  color: var(--text-color);
+  opacity: 0.85;
+} */
