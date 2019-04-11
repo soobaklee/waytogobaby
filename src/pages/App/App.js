@@ -10,10 +10,9 @@ import CommunityPage from '../CommunityPage';
 import CommunityProducts from '../../components/CommunityProducts/CommunityProducts';
 import Advice from '../../components/Advice/Advice';
 import PlayDatesPage from '../PlayDatesPage';
-import { getCurrentLatLng } from '../../utils/geolocation';
+import { getCurrentLatLng, getWeather } from '../../utils/geolocation';
 import { getCurWeatherByLatLng } from '../../utils/tp-api';
 import userService from '../../utils/userService';
-const weatherId = process.env.OPENWEATHERID;
 
 
 class App extends Component {
@@ -38,18 +37,30 @@ class App extends Component {
 
   // Lifecycle Methods
   async componentDidMount() {
-    
+
     const user = userService.getUser();
-    console.log(weatherId);
     const { lat, lng } = await getCurrentLatLng();
-    const weatherData = await getCurWeatherByLatLng(lat, lng, weatherId);
-    
+    console.log(lat, lng);
+
+    const weatherData = await(
+    fetch('/api/weather', {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify({ lat: lat, lng: lng })
+    })
+      .then(res => {
+        if (res.ok) return res.json();
+        throw new Error('React LatLng Error');
+    }));
+
+      console.log(weatherData.name);
     this.setState({
       user,
       lat,
       lng,
       temp: Math.round(weatherData.main.temp),
-      icon: weatherData.weather[0].icon
+      icon: weatherData.weather[0].icon,
+      city: weatherData.name
     })
   }
 
@@ -69,6 +80,7 @@ class App extends Component {
               lng={this.state.lng}
               temp={this.state.temp}
               icon={this.state.icon}
+              city={this.state.city}
             />
           )} />
           <Route exact path='/products' render={(props) => (
@@ -83,6 +95,7 @@ class App extends Component {
               lng={this.state.lng}
               temp={this.state.temp}
               icon={this.state.icon}
+              city={this.state.city}
             />
           )} />
           <Route exact path='/community/share' render={(props) => (

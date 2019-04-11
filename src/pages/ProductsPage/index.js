@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Category from '../../components/Category/Category';
-import { getAllBabyProdCat } from '../../utils/tp-api';
-const babyKey = process.env.BABYPROD_KEY;
+import {getAllBabyProdCat} from '../../utils/walmartService';
+import styles from './Products.module.css';
 
 class ProductsPage extends Component {
+    state = {};
 
     async componentDidMount() {
-        // const user = userService.getUser();
-        let cat = 5427;
-        const allBabyProdCat = await getAllBabyProdCat(cat, babyKey);
-        console.log(allBabyProdCat.items);
+        const allBabyProdCat = await getAllBabyProdCat();
+        console.log(allBabyProdCat);
         this.setState({
             babyCat: allBabyProdCat.items
         })
@@ -18,17 +16,14 @@ class ProductsPage extends Component {
 
     render() {
         return (
-            <div>
-                <ul>
-                  {/* {this.state.babyCat.map((cat, idx) =>
-                    <li>
-                      {cat.name}
-                    </li>
-                  )} */}
-                </ul>
-                <Category
-                    // babyCat={this.state.babyCat}
-                />
+            <div className={`${styles.div}`}>
+                  {this.state.babyCat && this.state.babyCat.map((cat, idx) =>
+                <div className={`${styles.ProductBox}`} key={`${idx}`}>
+                    
+                      {cat.name}, MSRP: {cat.msrp}
+                    
+                </div>
+                  )}
             </div>
         )
     }

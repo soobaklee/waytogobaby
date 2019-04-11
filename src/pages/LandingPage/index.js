@@ -12,6 +12,7 @@ class LandingPage extends Component {
                     lng={this.props.lng}
                     temp={this.props.temp}
                     icon={this.props.icon}
+                    city={this.props.city}
                 />
             </div>
         )
