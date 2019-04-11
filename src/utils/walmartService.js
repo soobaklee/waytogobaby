@@ -1,7 +1,7 @@
 const walmartUrl = '/api/walmart/';
 
 
-export const  getAllBabyProdCat = (products) => {
+export const  getAllBabyProdCat = () => {
     return fetch(walmartUrl + 'products', {
         method: 'GET',
         headers: new Headers({ 'Content-Type': 'application/json' }),

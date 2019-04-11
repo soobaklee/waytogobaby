@@ -1,5 +1,14 @@
 const mongoose = require('mongoose');
 
+const reviewSchema = new Schema({
+    postedBy: {
+        type: Schema.Types.OjectId,
+        ref: 'User',
+    },
+    review: String,
+    rating: {type: Number, min: 1, max: 5, default: 3}
+});
+
 const productSchema = new mongoose.Schema({
     categoryPath: String,
     name: String,
@@ -10,6 +19,7 @@ const productSchema = new mongoose.Schema({
     salePrice: Number,
     mediumImage: String,
     age: String,
+    reviews: [reviewSchema],
 }, {
     timestamps: true,
 });

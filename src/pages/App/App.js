@@ -10,8 +10,7 @@ import CommunityPage from '../CommunityPage';
 import CommunityProducts from '../../components/CommunityProducts/CommunityProducts';
 import Advice from '../../components/Advice/Advice';
 import PlayDatesPage from '../PlayDatesPage';
-import { getCurrentLatLng, getWeather } from '../../utils/geolocation';
-import { getCurWeatherByLatLng } from '../../utils/tp-api';
+import { getCurrentLatLng } from '../../utils/geolocation';
 import userService from '../../utils/userService';
 
 
@@ -40,20 +39,17 @@ class App extends Component {
 
     const user = userService.getUser();
     const { lat, lng } = await getCurrentLatLng();
-    console.log(lat, lng);
+    const weatherData = await (
+      fetch('/api/weather', {
+        method: 'POST',
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ lat: lat, lng: lng })
+      })
+        .then(res => {
+          if (res.ok) return res.json();
+          throw new Error('React LatLng Error');
+        }));
 
-    const weatherData = await(
-    fetch('/api/weather', {
-      method: 'POST',
-      headers: new Headers({ 'Content-Type': 'application/json' }),
-      body: JSON.stringify({ lat: lat, lng: lng })
-    })
-      .then(res => {
-        if (res.ok) return res.json();
-        throw new Error('React LatLng Error');
-    }));
-
-      console.log(weatherData.name);
     this.setState({
       user,
       lat,
