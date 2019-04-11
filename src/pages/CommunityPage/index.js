@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import CommunityProducts from '../../components/CommunityProducts/CommunityProducts';
+import ShareItems from '../../components/ShareItems/ShareItems';
 import Advice from '../../components/Advice/Advice';
 import PlayDatesPage from '../../pages/PlayDatesPage';
 

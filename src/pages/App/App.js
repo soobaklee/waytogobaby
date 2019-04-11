@@ -7,7 +7,7 @@ import Nav from '../../components/Nav/Nav';
 import LandingPage from '../LandingPage';
 import ProductsPage from '../ProductsPage';
 import CommunityPage from '../CommunityPage';
-import CommunityProducts from '../../components/CommunityProducts/CommunityProducts';
+import ShareItems from '../../components/ShareItems/ShareItems';
 import Advice from '../../components/Advice/Advice';
 import PlayDatesPage from '../PlayDatesPage';
 import { getCurrentLatLng } from '../../utils/geolocation';
@@ -95,7 +95,7 @@ class App extends Component {
             />
           )} />
           <Route exact path='/community/share' render={(props) => (
-            <CommunityProducts
+            <ShareItems
               {...props}
             />
           )} />

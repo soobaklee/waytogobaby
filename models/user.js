@@ -1,21 +1,26 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
-const littleOneSchema = new Schema({
+var littleOneSchema = new Schema({
     name: String,
     age: Number,
     birthdate: Date,
     sex: String,
     photo: String,
+}, {
+    timestamps: true
 });
 
-const shareSchema = new Schema({
+var shareSchema = new Schema({
     category: String,
     name: String,
     description: String,
     photo: String,
+}, {
+    timestamps: true
 })
 
 const userSchema = new mongoose.Schema({
@@ -43,13 +48,13 @@ const userSchema = new mongoose.Schema({
     birthdate: Date,
     photo: String,
     friends: [{
-        type: Schema.Types.ObjectID, 
+        type: Schema.Types.ObjectId, 
         ref: 'User'
     }],
     littleOnes: [littleOneSchema],
     shareItems: [shareSchema],
     productReviews: [{
-        type: Schema.Types.ObjectID,
+        type: Schema.Types.ObjectId,
         ref: 'Product'
     }]
 }, {

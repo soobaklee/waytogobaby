@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Category from '../../components/Category/Category';
 import {getAllBabyProdCat} from '../../utils/walmartService';
 import styles from './Products.module.css';
 

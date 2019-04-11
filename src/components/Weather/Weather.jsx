@@ -5,8 +5,8 @@ class Weather extends Component {
     render() {
         return (
             <div className='Weather'>
+                    <h2>Today in {this.props.city}</h2>
                 <div className='Temp'>
-                <h2>Weather Today in {this.props.city}</h2>
                     {this.props.temp}
                 </div>
                 {this.props.icon &&

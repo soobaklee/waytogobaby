@@ -17,7 +17,7 @@ const Nav = props => {
         </ul>
         :
         <ul className={`${styles.Nav}`}>
-            <li>Products</li>
+            <li><Link to='/products'>Products</Link></li>
             <li><Link to='/login'>Login</Link></li>
             <li><Link to='/signup'>Sign Up</Link></li>
         </ul>

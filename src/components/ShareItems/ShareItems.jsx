@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class CommunityProducts extends Component {
+class ShareItems extends Component {
     render() {
         return (
             <div>
@@ -12,4 +12,4 @@ class CommunityProducts extends Component {
     }
 }
 
-export default CommunityProducts;
+export default ShareItems;
