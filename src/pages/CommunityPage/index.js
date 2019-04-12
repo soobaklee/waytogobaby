@@ -6,12 +6,28 @@ import PlayDatesPage from '../../pages/PlayDatesPage';
 
 class CommunityPage extends Component {
 
-    render() {
+    render(props) {
         return (
             <div>
-                <h1>Community Board for Item Share, Trading, PlayDates</h1>
-                <Link to='/community/advice'>Advice</Link><br></br>
-                <Link to='/community/share'>Item Share</Link>            
+                <Link to='/community/advice'>Advice</Link>&nbsp;&nbsp;
+                <Link to='/community/share'>Item Share</Link>
+                <ShareItems
+                    {...props}
+                    user={this.props.user}
+                />
+                <Advice
+                    {...props}
+                    user={this.props.user}
+                />
+
+                <PlayDatesPage
+                    lat={this.props.lat}
+                    lng={this.props.lng}
+                    temp={this.props.temp}
+                    icon={this.props.icon}
+                    city={this.props.city}
+                    user={this.props.user}
+                />
             </div>
         )
     }

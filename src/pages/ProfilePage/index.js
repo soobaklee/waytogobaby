@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
+import Profile from '../../components/Profile/Profile'
+// import ProductsPage from '../ProductsPage';
 
-class UserPage extends Component {
+class ProfilePage extends Component {
 
-    constructer() {
-        super();
-        this.state = {
-            friends: null,
+    // constructor() {
+    //     super();
+    //     this.state = {
             
-        }
-    }
+            
+    //     }
+    // }
 
     render() {
         return (
             <div>
-                <h1>User Profile Page</h1>
+                <Profile 
+                    user={this.props.user}
+                    // {...intlData}
+                />
+
                 <p>This should show:<br></br>
                 1. User stats - and have them be able to update it as they please
                 2. Add littleOnes
@@ -23,10 +29,11 @@ class UserPage extends Component {
                 6. See any playdates attending
                 7. See friends
                 </p>
+
             </div>
         )
     }
 
 }
 
-export default UserPage;
+export default ProfilePage;

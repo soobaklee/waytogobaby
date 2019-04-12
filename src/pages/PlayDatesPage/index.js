@@ -14,6 +14,8 @@ class PlayDatesPage extends Component {
                     lng={this.props.lng}
                     temp={this.props.temp}
                     icon={this.props.icon}
+                    city={this.props.city}
+                    user={this.props.user}
                 />
                 <Link to='/'>WayToGoBaby</Link>
 

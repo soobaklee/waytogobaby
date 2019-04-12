@@ -8,6 +8,6 @@ export const  getAllBabyProdCat = () => {
     })
         .then(res => {
             if (res.ok) return res.json();
-            throw new Error('walmartService file error!');
+            throw new Error('Products are not being retrieved. Try again!');
         })
 }

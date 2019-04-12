@@ -14,15 +14,6 @@ var littleOneSchema = new Schema({
     timestamps: true
 });
 
-var shareSchema = new Schema({
-    category: String,
-    name: String,
-    description: String,
-    photo: String,
-}, {
-    timestamps: true
-})
-
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -52,7 +43,10 @@ const userSchema = new mongoose.Schema({
         ref: 'User'
     }],
     littleOnes: [littleOneSchema],
-    shareItems: [shareSchema],
+    shareItems: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Share'
+    }],
     productReviews: [{
         type: Schema.Types.ObjectId,
         ref: 'Product'

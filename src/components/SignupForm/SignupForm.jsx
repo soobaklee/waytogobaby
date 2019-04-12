@@ -13,7 +13,7 @@ class SignupForm extends Component {
             phoneNo: '',
             city: '',
             state: '',
-            birthdate: '',
+            birthdate: new Date().toLocaleString(),
             photo: ''
         };
     }

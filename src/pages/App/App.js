@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch, Redirect, Link } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
+// import { IntlProvider } from "react-intl"
 import LoginPage from '../Login';
 import SignupPage from '../Signup';
 import Nav from '../../components/Nav/Nav';
@@ -10,6 +11,7 @@ import CommunityPage from '../CommunityPage';
 import ShareItems from '../../components/ShareItems/ShareItems';
 import Advice from '../../components/Advice/Advice';
 import PlayDatesPage from '../PlayDatesPage';
+import ProfilePage from '../ProfilePage';
 import { getCurrentLatLng } from '../../utils/geolocation';
 import userService from '../../utils/userService';
 
@@ -36,7 +38,6 @@ class App extends Component {
 
   // Lifecycle Methods
   async componentDidMount() {
-
     const user = userService.getUser();
     const { lat, lng } = await getCurrentLatLng();
     const weatherData = await (
@@ -77,7 +78,14 @@ class App extends Component {
               temp={this.state.temp}
               icon={this.state.icon}
               city={this.state.city}
+              user={this.state.user}
             />
+          )} />
+          <Route exact path='/profile' render={(props) => (
+              <ProfilePage
+                {...props}
+                user={this.state.user}
+              />
           )} />
           <Route exact path='/products' render={(props) => (
             <ProductsPage
@@ -92,6 +100,7 @@ class App extends Component {
               temp={this.state.temp}
               icon={this.state.icon}
               city={this.state.city}
+              user={this.state.user}
             />
           )} />
           <Route exact path='/community/share' render={(props) => (
@@ -111,6 +120,8 @@ class App extends Component {
               lng={this.state.lng}
               temp={this.state.temp}
               icon={this.state.icon}
+              city={this.state.city}
+              user={this.state.user}
             />
           )} />
           <Route exact path='/login' render={({ history }) =>

@@ -9,6 +9,8 @@ const playdateSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId, 
         ref: 'User'
     }]
+}, {
+    timestamps: true
 });
 
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('Playdate', playdateSchema);
