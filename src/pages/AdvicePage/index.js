@@ -1,9 +1,8 @@
 import React from 'react';
-import NeedAdviceForm from './NeedAdviceForm';
-import adviceService from '../../utils/adviceService';
-// import Box from '../Box/Box';
+import NewAdvicePage from '../NewAdvicePage';
+// import adviceService from '../../utils/adviceService';
 
-class Advice extends React.Component {
+class AdvicePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,16 +25,16 @@ class Advice extends React.Component {
         this.setState({ advice });
     }
 
-    async componentDidMount() {
-        const advice = await adviceService.index();
-        this.state.handleUpdateAdvice(advice);
-    }
+    // async componentDidMount() {
+    //     const advice = await adviceService.index();
+    //     this.state.handleUpdateAdvice(advice);
+    // }
 
     render(props) {
         let needAdvice = this.props.user ?
             <div>
                 <p>Share your concern with the community </p>
-                <NeedAdviceForm
+                <NewAdvicePage
                     {...props}
                     user={this.props.user}
                     updateMessage={this.updateMessage}
@@ -48,11 +47,11 @@ class Advice extends React.Component {
 
         return (
             <div>
-                
+
                 {needAdvice}
             </div>
         )
     }
 }
 
-export default Advice;
+export default AdvicePage;

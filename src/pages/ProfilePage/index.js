@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Profile from '../../components/Profile/Profile'
-// import ProductsPage from '../ProductsPage';
 
 class ProfilePage extends Component {
 

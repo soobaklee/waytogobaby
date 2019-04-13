@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ShareItems from '../../components/ShareItems/ShareItems';
-import Advice from '../../components/Advice/Advice';
+import ShareItemsPage from '../../pages/ShareItemsPage';
+import AdvicePage from '../../pages/AdvicePage';
+import NewAdvicePage from '../../pages/NewAdvicePage';
 import PlayDatesPage from '../../pages/PlayDatesPage';
 
 class CommunityPage extends Component {
@@ -11,15 +12,15 @@ class CommunityPage extends Component {
             <div>
                 <Link to='/community/advice'>Advice</Link>&nbsp;&nbsp;
                 <Link to='/community/share'>Item Share</Link>
-                <ShareItems
+                <ShareItemsPage
                     {...props}
                     user={this.props.user}
                 />
-                <Advice
+                <NewAdvicePage
                     {...props}
                     user={this.props.user}
                 />
-
+                <AdvicePage />
                 <PlayDatesPage
                     lat={this.props.lat}
                     lng={this.props.lng}

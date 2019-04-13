@@ -20,6 +20,7 @@ app.use(require('./config/auth'));
 app.use('/api/walmart', require('./routes/api/walmart'));
 app.use('/api/weather', require('./routes/api/weather'));
 app.use('/api/community/advice', require('./routes/api/advices'));
+// app.use('/api/community/share, require('./routes/api/share'));
 
 
 app.get('/*', function(req, res) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
+// import { Redirect, Link } from 'react-router-dom';
 // import ReactIntl from 'react-intl';
 
 // var IntlMixin = ReactIntl.IntlMixin;

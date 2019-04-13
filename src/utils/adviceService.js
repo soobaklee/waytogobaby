@@ -2,19 +2,19 @@ import tokenService from './tokenService';
 const adviceUrl = '/api/community/advice/';
 
 
-const index = () => {
-    return fetch(adviceUrl, {
-        method: 'GET',
-        headers: {
-            'Authorization': 'Bearer ' + tokenService.getToken()
-        }
-    })
-        .then(res => res.json());
-        // .then(res => {
-        //     if (res.ok) return res.json();
-        //     throw new Error('Could not retrieve');
-        // });
-}
+// const index = () => {
+//     return fetch(adviceUrl, {
+//         method: 'GET',
+//         headers: {
+//             'Authorization': 'Bearer ' + tokenService.getToken()
+//         }
+//     })
+//         // .then(res => res.json());
+//         .then(res => {
+//             if (res.ok) return res.json();
+//             throw new Error('Could not retrieve');
+//         })
+// }
 
 const createAdvice = (advice) => {
     return fetch(adviceUrl, {
@@ -33,6 +33,6 @@ const createAdvice = (advice) => {
 }
 
 export default {
-    index,
+    // index,
     createAdvice
 }

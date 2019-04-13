@@ -8,8 +8,9 @@ import Nav from '../../components/Nav/Nav';
 import LandingPage from '../LandingPage';
 import ProductsPage from '../ProductsPage';
 import CommunityPage from '../CommunityPage';
-import ShareItems from '../../components/ShareItems/ShareItems';
-import Advice from '../../components/Advice/Advice';
+import ShareItemsPage from '../ShareItemsPage';
+import AdvicePage from '../AdvicePage';
+import NewAdvicePage from '../NewAdvicePage';
 import PlayDatesPage from '../PlayDatesPage';
 import ProfilePage from '../ProfilePage';
 import { getCurrentLatLng } from '../../utils/geolocation';
@@ -23,7 +24,9 @@ class App extends Component {
     this.state = {
       user: null,
       lat: null,
-      lng: null
+      lng: null,
+      advice: [],
+
     }
   }
 
@@ -82,10 +85,10 @@ class App extends Component {
             />
           )} />
           <Route exact path='/profile' render={(props) => (
-              <ProfilePage
-                {...props}
-                user={this.state.user}
-              />
+            <ProfilePage
+              {...props}
+              user={this.state.user}
+            />
           )} />
           <Route exact path='/products' render={(props) => (
             <ProductsPage
@@ -105,13 +108,19 @@ class App extends Component {
             />
           )} />
           <Route exact path='/community/share' render={(props) => (
-            <ShareItems
+            <ShareItemsPage
               {...props}
               user={this.state.user}
             />
           )} />
           <Route exact path='/community/advice' render={(props) => (
-            <Advice
+            <AdvicePage
+              {...props}
+              user={this.state.user}
+            />
+          )} />
+          <Route exact path='/community/advice/new' render={(props) => (
+            <NewAdvicePage
               {...props}
               user={this.state.user}
             />
