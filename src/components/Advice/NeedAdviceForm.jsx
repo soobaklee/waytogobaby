@@ -10,7 +10,6 @@ class NeedAdviceForm extends Component {
             title: '',
             content: '',
             postedBy: this.props.user,
-            // advice: []
         }
     }
 
@@ -26,9 +25,8 @@ class NeedAdviceForm extends Component {
         e.preventDefault();
         try {
             await adviceService.createAdvice(this.state);
-            console.log(this.state);
             this.props.handleAddAdvice();
-            this.props.history.push('/');
+            this.props.history.push('/:id');
         } catch (err) {
             this.props.updateMessage(err.message);
         }

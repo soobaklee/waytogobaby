@@ -1,32 +1,38 @@
+import tokenService from './tokenService';
 const adviceUrl = '/api/community/advice/';
-// import tokenService from './tokenService';
 
-const getAllAdvice = () => {
+
+const index = () => {
     return fetch(adviceUrl, {
         method: 'GET',
-        headers: new Headers({ 'Content-Type': 'application/json' }),
+        headers: {
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        }
     })
-    .then(res => {
-        if(res.ok) return res.json();
-        throw new Error('Advice needed is not being retrieved. Try again.');
-    })
+        .then(res => res.json());
+        // .then(res => {
+        //     if (res.ok) return res.json();
+        //     throw new Error('Could not retrieve');
+        // });
 }
 
 const createAdvice = (advice) => {
     return fetch(adviceUrl, {
         method: 'POST',
-        headers: new Headers({'Content-Type': 'application/json' }),
+        headers: new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        }),
         body: JSON.stringify(advice)
     })
-    .then(res => {
-        
-        if (res.ok) return res.json();
-        throw new Error('Advice request did not post');
-    })
+        .then(res => {
+            if (res.ok) return res.json();
+            throw new Error('Advice request did not post');
+        })
     // .then(advice => advice);
 }
 
 export default {
-    getAllAdvice,
+    index,
     createAdvice
 }

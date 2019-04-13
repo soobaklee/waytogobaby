@@ -90,6 +90,7 @@ class App extends Component {
           <Route exact path='/products' render={(props) => (
             <ProductsPage
               {...props}
+              user={this.state.user}
             />
           )} />
           <Route exact path='/community' render={(props) => (
@@ -106,11 +107,13 @@ class App extends Component {
           <Route exact path='/community/share' render={(props) => (
             <ShareItems
               {...props}
+              user={this.state.user}
             />
           )} />
           <Route exact path='/community/advice' render={(props) => (
             <Advice
               {...props}
+              user={this.state.user}
             />
           )} />
           <Route exact path='/playdates' render={(props) => (

@@ -1,5 +1,6 @@
 import React from 'react';
 import NeedAdviceForm from './NeedAdviceForm';
+import adviceService from '../../utils/adviceService';
 // import Box from '../Box/Box';
 
 class Advice extends React.Component {
@@ -21,6 +22,15 @@ class Advice extends React.Component {
         }))
     }
 
+    handleUpdateAdvice = (advice) => {
+        this.setState({ advice });
+    }
+
+    async componentDidMount() {
+        const advice = await adviceService.index();
+        this.state.handleUpdateAdvice(advice);
+    }
+
     render(props) {
         let needAdvice = this.props.user ?
             <div>
@@ -38,9 +48,8 @@ class Advice extends React.Component {
 
         return (
             <div>
-                <h1>Community Advice</h1>
+                
                 {needAdvice}
-
             </div>
         )
     }
