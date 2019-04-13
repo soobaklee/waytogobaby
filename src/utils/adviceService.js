@@ -3,7 +3,7 @@ const adviceUrl = '/api/community/advice/';
 
 
 const index = () => {
-    return fetch(adviceUrl, getAuthRequestOptions('GET'))
+    return fetch(adviceUrl, noAuthRequestOptions('GET'))
     .then(res => {
         if (res.ok) return res.json();
         throw new Error('Could not retrieve advice requests');
@@ -35,6 +35,15 @@ function getAuthRequestOptions(method) {
         method,
         headers: new Headers({
             'Authorization': 'Bearer ' + tokenService.getToken(),
+            'Content-Type': 'application/json'
+        })
+    }
+}
+
+function noAuthRequestOptions(method) {
+    return {
+        method,
+        headers: new Headers({
             'Content-Type': 'application/json'
         })
     }
