@@ -9,12 +9,16 @@ module.exports = {
 
 
 function index(req, res, next) {
-    Advice.find({}).populate('postedBy').populate('responses.postedBy').exec(function (err, advice) {
-        res.render('advice/index', {
-            user: req.user,
-            advice
-        });
-    });
+    Advice.find({}).populate('postedBy')
+    .then(advice => {
+        res.status(200).json(advice);
+    })
+    // Advice.find({}).populate('postedBy').populate('responses.postedBy').exec(function (err, advice) {
+    //     res.render('advice/index', {
+    //         user: req.user,
+    //         advice
+    //     });
+    // });
 }
 
 function needAdvice(req, res) {
@@ -25,13 +29,14 @@ function needAdvice(req, res) {
 
 function show(req, res) {
     Advice.findById(req.params.id)
-        .populate('postedBy').populate('responses.postedBy')
-        .exec(function (err, advice) {
-            res.render('advice/show', {
-                postedBy: advice.postedBy,
-                user: req.user,
-                advice
-            });
+        .populate('postedBy')
+        .exec((err, advice) => {
+            res.json({advice: advice})
+            // res.render('advice/show', {
+            //     postedBy: advice.postedBy,
+            //     user: req.user,
+            //     advice
+            // });
         });
 
 }

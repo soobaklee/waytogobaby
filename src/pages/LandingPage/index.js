@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Weather from '../../components/Weather/Weather'
 
 const LandingPage = (props) => {
-    // let scheduleaplaydate = if (temp > 65) { "Let's Schedule a PlayDate Today!" } else { "Schedule a PlayDate soon!" };
 
     return (
         <div>

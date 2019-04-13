@@ -16,11 +16,10 @@ class CommunityPage extends Component {
                     {...props}
                     user={this.props.user}
                 />
-                <NewAdvicePage
+                <AdvicePage
                     {...props}
                     user={this.props.user}
-                />
-                <AdvicePage />
+                />                
                 <PlayDatesPage
                     lat={this.props.lat}
                     lng={this.props.lng}

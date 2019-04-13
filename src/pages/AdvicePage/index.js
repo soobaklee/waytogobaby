@@ -1,39 +1,36 @@
 import React from 'react';
 import NewAdvicePage from '../NewAdvicePage';
-// import adviceService from '../../utils/adviceService';
+import adviceService from '../../utils/adviceService';
 
 class AdvicePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: '',
+            adviceId: '',
+            title: '',
+            content: '',
+            postedBy: '',
             advice: []
         }
-    }
-
-    updateMessage = (msg) => {
-        this.setState({ message: msg });
-    }
-
-    handleAddAdvice = (advice) => {
-        this.setState((existingAdvice) => ({
-            advice: [...existingAdvice.advice, advice]
-        }))
     }
 
     handleUpdateAdvice = (advice) => {
         this.setState({ advice });
     }
 
-    // async componentDidMount() {
-    //     const advice = await adviceService.index();
-    //     this.state.handleUpdateAdvice(advice);
-    // }
+    async componentDidMount() {
+        const advice = await adviceService.index();
+        this.handleUpdateAdvice(advice);
+    }
 
     render(props) {
+        let adviceList = this.state.advice.map((advice, idx) => (
+            <p key={idx}>{advice.title}<br></br>{advice.content}</p>
+        ));
+
         let needAdvice = this.props.user ?
             <div>
-                <p>Share your concern with the community </p>
+                <h1>Join the community by helping others with their concerns and by sharing yours </h1>
                 <NewAdvicePage
                     {...props}
                     user={this.props.user}
@@ -41,9 +38,17 @@ class AdvicePage extends React.Component {
                     handleAddAdvice={this.handleAddAdvice}
                 />
                 {this.state.updateMessage}
+                <div className="adviceList">
+                    {adviceList}
+                </div>
             </div>
             :
-            <p>Login to share your concern with the community.</p>
+            <div>
+                <div className="adviceList">
+                    {adviceList}
+                </div>
+                <p>Login to share your concern with the community.</p>
+            </div>
 
         return (
             <div>
