@@ -10,31 +10,30 @@ class AdviceDetailPage extends React.Component {
             title: '',
             content: '',
             postedBy: '',
-            // responses: [],
+            responses: [],
         }
     }
 
     async componentDidMount() {
-        let adviceId = this.state.advice_id;
-        adviceId = await adviceService.show(this.state.title);
+        let adviceId = await adviceService.show(this.state.advice);
         console.log(adviceId);
-        // adviceService.show(adviceId).then((json) => {
-        //     this.setState({
-        //         id: json.id,
-        //         title: json.title,
-        //         content: json.content,
-        //         postedBy: json.postedBy,
-        //         // responses: json.responses
-        //     });
-        // });
+        adviceService.show(adviceId).then((json) => {
+            this.setState({
+                id: adviceId[0]._id,
+                title: adviceId[0].title,
+                // content: json.content,
+                // postedBy: json.postedBy,
+                // responses: json.responses
+            });
+        });
     }
 
 
     render(props) {
         return (
             <div>
-                <h5>{this.state.title}</h5><hr></hr>
-                <p>{this.state.content}</p>
+                <h5>{this.props.title}</h5><hr></hr>
+                <p>{this.props.content}</p>
             </div>
         )
     }

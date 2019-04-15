@@ -35,9 +35,9 @@ class AdvicePage extends React.Component {
     }
 
     render(props) {
-        let adviceList = this.state.advice.map((advice) => (
-            <div className={`${styles.adviceList}`} key={advice._id}>
-                <Link to={`/community/advice/${advice._id}`}>
+        let adviceList = this.state.advice.map((advice, idx) => (
+            <div className={`${styles.adviceList}`} key={idx}>
+                <Link to={`/community/advice/${idx}`}>
                     <p>Concern: {advice.title}</p>
                     <p className={`${styles.content}`}>{advice.content}</p>
                     <p>Posted By: {advice.postedBy[0].name} on {advice.updatedAt}</p>

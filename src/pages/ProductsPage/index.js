@@ -13,14 +13,16 @@ class ProductsPage extends Component {
     //     })
     // }
 
-    render() {
+
+    render() {        
+
         return (
             <div className={`${styles.div}`}>
                     {this.props.babyCat && this.props.babyCat.map((cat, idx) =>
                 <div className={`${styles.ProductBox}`} key={`${idx}`}>
                         <Link to={`/products/${idx}`}>
-                            <h4>{cat.brandName}</h4>
                             <h5>{cat.name}</h5>
+                            <h4>{cat.brandName}</h4>
                             <p>{cat.shortDescription}</p>
                         </Link>
                 </div>
