@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import {getAllBabyProdCat} from '../../utils/walmartService';
+import { Link } from 'react-router-dom';
+// import { getAllBabyProdCat } from '../../utils/walmartService';
 import styles from './Products.module.css';
 
 class ProductsPage extends Component {
-    state = {};
+    // state = {};
 
-    async componentDidMount() {
-        const allBabyProdCat = await getAllBabyProdCat();
-        console.log(allBabyProdCat);
-        this.setState({
-            babyCat: allBabyProdCat.items
-        })
-    }
+    // async componentDidMount() {
+    //     const allBabyProdCat = await getAllBabyProdCat();
+    //     this.setState({
+    //         babyCat: allBabyProdCat.items
+    //     })
+    // }
 
     render() {
         return (
             <div className={`${styles.div}`}>
-                  {this.state.babyCat && this.state.babyCat.map((cat, idx) =>
+                    {this.props.babyCat && this.props.babyCat.map((cat, idx) =>
                 <div className={`${styles.ProductBox}`} key={`${idx}`}>
-                    
-                      {cat.name}, MSRP: {cat.msrp}
-                    
+                        <Link to={`/products/${idx}`}>
+                            <h4>{cat.brandName}</h4>
+                            <h5>{cat.name}</h5>
+                            <p>{cat.shortDescription}</p>
+                        </Link>
                 </div>
-                  )}
+                    )}
             </div>
         )
     }

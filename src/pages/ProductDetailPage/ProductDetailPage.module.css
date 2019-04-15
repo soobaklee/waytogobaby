@@ -1,15 +1,11 @@
-.div {
-    column-width: 500px;
-}
-
 .ProductBox {
     border: 2px solid var(--primary-color);
     margin: 15px;
-    width: 500px;
-    justify-content: center;
+    width: 300px;
 }
 
-.ProductBox a p {
+.div {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }

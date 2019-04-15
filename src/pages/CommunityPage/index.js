@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ShareItemsPage from '../../pages/ShareItemsPage';
 import AdvicePagePartial from '../../pages/AdvicePage/AdvicePagePartial';
-import PlayDatesPage from '../../pages/PlayDatesPage';
 
 class CommunityPage extends Component {
 
@@ -20,14 +19,6 @@ class CommunityPage extends Component {
                     {...props}
                     user={this.props.user}
                 />                
-                <PlayDatesPage
-                    lat={this.props.lat}
-                    lng={this.props.lng}
-                    temp={this.props.temp}
-                    icon={this.props.icon}
-                    city={this.props.city}
-                    user={this.props.user}
-                />
             </div>
         )
     }

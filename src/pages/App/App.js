@@ -7,6 +7,7 @@ import SignupPage from '../Signup';
 import Nav from '../../components/Nav/Nav';
 import LandingPage from '../LandingPage';
 import ProductsPage from '../ProductsPage';
+import ProductDetailPage from '../ProductDetailPage';
 import CommunityPage from '../CommunityPage';
 import ShareItemsPage from '../ShareItemsPage';
 import AdvicePage from '../AdvicePage';
@@ -15,6 +16,7 @@ import AdviceDetailPage from '../AdviceDetailPage';
 import PlayDatesPage from '../PlayDatesPage';
 import ProfilePage from '../ProfilePage';
 import { getCurrentLatLng } from '../../utils/geolocation';
+import { getAllBabyProdCat } from '../../utils/walmartService';
 import userService from '../../utils/userService';
 
 
@@ -41,7 +43,7 @@ class App extends Component {
 
   handleSetFilter = (field, value) => {
     this.setState = ({
-        [field]: value
+      [field]: value
     })
   }
 
@@ -60,13 +62,16 @@ class App extends Component {
           throw new Error('React LatLng Error');
         }));
 
-    this.setState({
-      user,
-      lat,
-      lng,
-      temp: Math.round(weatherData.main.temp),
-      icon: weatherData.weather[0].icon,
-      city: weatherData.name
+      const allBabyProdCat = await getAllBabyProdCat();
+      
+      this.setState({
+        user,
+        lat,
+        lng,
+        temp: Math.round(weatherData.main.temp),
+        icon: weatherData.weather[0].icon,
+        city: weatherData.name,
+        babyCat: allBabyProdCat.items
     })
   }
 
@@ -100,6 +105,15 @@ class App extends Component {
             <ProductsPage
               {...props}
               user={this.state.user}
+              babyCat={this.state.babyCat}
+              handleSetFilter={this.handleSetFilter}
+            />
+          )} />
+          <Route exact path='/products/:id' render={(props) => (
+            <ProductDetailPage
+              {...props}
+              user={this.state.user}
+              babyCat={this.state.babyCat}
               handleSetFilter={this.handleSetFilter}
             />
           )} />
