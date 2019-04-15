@@ -23,7 +23,7 @@ const Profile = props => {
                 </tr>
                 <tr>
                     <td>Birthdate:</td>
-                    <td>{props.user.birthdate}</td>
+                    <td>{props.user.birthdate.toLocaleString()}</td>
                 </tr>
             </table>
         </div>

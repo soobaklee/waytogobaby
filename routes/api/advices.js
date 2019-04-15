@@ -5,6 +5,7 @@ const advicesCtrl = require('../../controllers/advices');
 //Do I need to require anything for my images?
 
 router.get('/', advicesCtrl.index);
+router.get('/:id', advicesCtrl.show);
 
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below
@@ -13,9 +14,7 @@ router.post('/', checkAuth, advicesCtrl.create);
 
 
 /* GET users listing. */
-// router.get('/', advicesCtrl.index);
 // router.get('/new', checkAuth, advicesCtrl.new);
-// router.get('/:id', advicesCtrl.show);
 // router.post('/', checkAuth, advicesCtrl.create);
 // router.delete('/:id', checkAuth, advicesCtrl.delete);
 // router.get('/:id/edit', checkAuth, advicesCtrl.edit);

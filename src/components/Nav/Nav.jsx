@@ -6,10 +6,6 @@ const Nav = props => {
     let nav = props.user ?
         <ul className={`${styles.Nav}`}>
             <li><Link to='/products'>Products</Link></li>
-            {/* <li>Prod sub Diapers</li>
-            <li>Prod sub Feeding</li>
-            <li>Prod sub Toys</li>
-            <li>Prod sub Travel Equipment</li> */}
             <li><Link to='/community'>Sharing is Caring</Link></li>
             <li><Link to='/playdates' >Play Dates</Link></li>
             <span className='Nav-welcome'>Hi, {props.user.name}</span>

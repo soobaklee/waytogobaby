@@ -11,7 +11,7 @@ const index = () => {
 }
 
 const show = (adviceId) => {
-    return fetch(`${adviceUrl}/${adviceId}`, getAuthRequestOptions('GET'))
+    return fetch(`${adviceUrl}${adviceId}`, getAuthRequestOptions('GET'))
     .then(res => {
         if (res.ok) return res.json();
         throw new Error('Show advice request went wrong');

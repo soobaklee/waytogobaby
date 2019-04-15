@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ShareItemsPage from '../../pages/ShareItemsPage';
-import AdvicePage from '../../pages/AdvicePage';
-import NewAdvicePage from '../../pages/NewAdvicePage';
+import AdvicePagePartial from '../../pages/AdvicePage/AdvicePagePartial';
 import PlayDatesPage from '../../pages/PlayDatesPage';
 
 class CommunityPage extends Component {
@@ -16,7 +15,8 @@ class CommunityPage extends Component {
                     {...props}
                     user={this.props.user}
                 />
-                <AdvicePage
+                {}
+                <AdvicePagePartial
                     {...props}
                     user={this.props.user}
                 />                

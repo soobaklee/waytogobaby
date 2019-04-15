@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import adviceService from '../../utils/adviceService';
 import styles from './AdvicePage.module.css';
 
-class AdvicePage extends React.Component {
+
+class AdvicePagePartial extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: '',
+            adviceId: '',
             title: '',
             content: '',
             postedBy: '',
-            advice: [],
-            filterAdviceTopic: '',
+            advice: []
         }
     }
 
@@ -20,23 +20,15 @@ class AdvicePage extends React.Component {
         this.setState({ advice });
     }
 
-    filterNeedAdvice = () => {
-        let filteredAdviceTopic = this.state.advice;
-        if (this.state.filterAdviceTopic) filteredAdviceTopic = filteredAdviceTopic.filter(advice => advice.content.includes() === this.state.filterAdviceTopic);
-        return filteredAdviceTopic;
-    }
-
-
-
     async componentDidMount() {
         const advice = await adviceService.index();
         this.handleUpdateAdvice(advice);
-
+        console.log(advice);
     }
 
     render(props) {
-        let adviceList = this.state.advice.map((advice) => (
-            <div className={`${styles.adviceList}`} key={advice._id}>
+        let adviceList = this.state.advice.slice(0, 5).map((advice, idx) => (
+            <div className={`${styles.adviceList}`} key={idx}>
                 <Link to={`/community/advice/${advice._id}`}>
                     <p>Concern: {advice.title}</p>
                     <p className={`${styles.content}`}>{advice.content}</p>
@@ -53,27 +45,22 @@ class AdvicePage extends React.Component {
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
                 </div>
+                <Link to='/community/advice/'><button className='submit-btn'>See more of the community</button></Link>
             </div>
             :
             <div>
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
                 </div>
-                <p>Login to share your concern with the community.</p>
+                <Link to='/login'><p>Login to see more of the community and to share your concern with the community.</p></Link>
             </div>
 
         return (
-            <div classname={`${styles.advicePage}`}>
-                {/* <div className="filterBox">
-                    <label>Filter for: </label>
-                    <input value={this.props.filterAdviceTopic} 
-                    onChange={(e) => this.props.handleSetFilter('filterAdviceTopic', e.target.value)} 
-                    required />
-                </div> */}
+            <div className={`${styles.advicePage}`}>
                 {userview}
             </div>
         )
     }
 }
 
-export default AdvicePage;
+export default AdvicePagePartial;

@@ -11,6 +11,7 @@ import CommunityPage from '../CommunityPage';
 import ShareItemsPage from '../ShareItemsPage';
 import AdvicePage from '../AdvicePage';
 import NewAdvicePage from '../NewAdvicePage';
+import AdviceDetailPage from '../AdviceDetailPage';
 import PlayDatesPage from '../PlayDatesPage';
 import ProfilePage from '../ProfilePage';
 import { getCurrentLatLng } from '../../utils/geolocation';
@@ -26,7 +27,6 @@ class App extends Component {
       lat: null,
       lng: null,
       advice: [],
-
     }
   }
 
@@ -37,6 +37,12 @@ class App extends Component {
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
+  }
+
+  handleSetFilter = (field, value) => {
+    this.setState = ({
+        [field]: value
+    })
   }
 
   // Lifecycle Methods
@@ -94,6 +100,7 @@ class App extends Component {
             <ProductsPage
               {...props}
               user={this.state.user}
+              handleSetFilter={this.handleSetFilter}
             />
           )} />
           <Route exact path='/community' render={(props) => (
@@ -111,18 +118,27 @@ class App extends Component {
             <ShareItemsPage
               {...props}
               user={this.state.user}
+              handleSetFilter={this.handleSetFilter}
             />
           )} />
           <Route exact path='/community/advice' render={(props) => (
             <AdvicePage
               {...props}
               user={this.state.user}
+              handleSetFilter={this.handleSetFilter}
             />
           )} />
           <Route exact path='/community/advice/new' render={(props) => (
             <NewAdvicePage
               {...props}
               user={this.state.user}
+            />
+          )} />
+          <Route exact path='/community/advice/:id' render={(props) => (
+            <AdviceDetailPage
+              {...props}
+              user={this.state.user}
+              advice={this.state.advice.find(advice => advice._id === props.match.params.advice_id)}
             />
           )} />
           <Route exact path='/playdates' render={(props) => (
@@ -134,6 +150,7 @@ class App extends Component {
               icon={this.state.icon}
               city={this.state.city}
               user={this.state.user}
+              handleSetFilter={this.handleSetFilter}
             />
           )} />
           <Route exact path='/login' render={({ history }) =>

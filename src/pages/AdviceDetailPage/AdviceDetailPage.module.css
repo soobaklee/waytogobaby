@@ -1,0 +1,17 @@
+.adviceList {
+    border: 2px solid black;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.adviceList td {
+    padding: 5px 15px;
+}
+
+.adviceDiv {
+    justify-content: center;
+}
+
+.content {
+    align-items: center;
+}

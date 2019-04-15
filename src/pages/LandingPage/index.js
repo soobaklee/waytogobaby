@@ -10,7 +10,7 @@ const LandingPage = (props) => {
                 Caring for a little human being is perhaps one of the most
                 challenging responsibilities anyone can encounter.
                 If you're here and caring for a growing, little human being,
-                we have resources to help and to cheer you on.
+                we have resources to help and cheer you on.
                     We hope you are enjoying your adventure and <br></br>
                 Welcome to Way To Go Baby!
                 </p>
