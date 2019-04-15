@@ -8,7 +8,8 @@ const Nav = props => {
             <li><Link to='/products'>Products</Link></li>
             <li><Link to='/community'>Sharing is Caring</Link></li>
             <li><Link to='/playdates' >Play Dates</Link></li>
-            <li><Link to='' onClick={props.handleLogout}><span className='Nav-welcome'>Hi, {props.user.name},</span> Log Out</Link></li>
+            <li><Link to='/profile' className='Nav-welcome'>Hi, {props.user.name}</Link></li>
+            <li><Link to='' onClick={props.handleLogout}> Log Out</Link></li>
         </ul>
         :
         <ul className={`${styles.Nav}`}>

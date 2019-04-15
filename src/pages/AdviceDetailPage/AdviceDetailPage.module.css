@@ -4,12 +4,10 @@
     margin: 0 auto;
 }
 
-.adviceList td {
-    padding: 5px 15px;
-}
-
 .adviceDiv {
     justify-content: center;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .content {

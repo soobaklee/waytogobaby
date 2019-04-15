@@ -1,42 +1,37 @@
 import React from 'react';
-// import styles from './AdviceDetailPage.module.css'
-import adviceService from '../../utils/adviceService';
-
-class AdviceDetailPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            id: '',
-            title: '',
-            content: '',
-            postedBy: '',
-            responses: [],
-        }
-    }
-
-    async componentDidMount() {
-        let adviceId = await adviceService.show(this.state.advice);
-        console.log(adviceId);
-        adviceService.show(adviceId).then((json) => {
-            this.setState({
-                id: adviceId[0]._id,
-                title: adviceId[0].title,
-                // content: json.content,
-                // postedBy: json.postedBy,
-                // responses: json.responses
-            });
-        });
-    }
+import styles from './AdviceDetailPage.module.css'
+import moment from 'moment';
 
 
-    render(props) {
-        return (
-            <div>
-                <h5>{this.props.title}</h5><hr></hr>
-                <p>{this.props.content}</p>
-            </div>
-        )
-    }
+const AdviceDetailPage = props => {
+
+    // console.log("Props in AdviceDetailPage", props)
+    // console.log(props.match.params)
+
+    let advice = props.advice.filter(advice => {
+        return advice._id === props.match.params.id
+    })[0]
+
+    let adviceShow = advice ?
+        <div className={`${styles.content}`}>
+            <h1>Show Advice Details</h1>
+            <h5>{advice.title}</h5>
+            <h5>{advice.content}</h5>
+            <h5>Shared by {advice.postedBy[0].name}, {moment(advice.postedBy[0].updatedAt).calendar()}</h5>
+        </div>
+        :
+        <div>Waiting to Load</div>
+    return (
+
+        <div>
+            {/* <h1>Show Advice Details</h1>
+            <h5>{advice.title}</h5><hr></hr>
+            <h5>{advice.content}</h5><hr></hr>
+            <h5>{advice.postedBy}</h5><hr></hr> */}
+            {adviceShow}
+        </div>
+    )
+    // }
 }
 
 export default AdviceDetailPage;

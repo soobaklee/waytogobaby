@@ -12,7 +12,7 @@ import CommunityPage from '../CommunityPage';
 import ShareItemsPage from '../ShareItemsPage';
 import AdvicePage from '../AdvicePage';
 import NewAdvicePage from '../NewAdvicePage';
-import AdviceDetailPage from '../AdviceDetailPage';
+// import AdviceDetailPage from '../AdviceDetailPage';
 import PlayDatesPage from '../PlayDatesPage';
 import ProfilePage from '../ProfilePage';
 import { getCurrentLatLng } from '../../utils/geolocation';
@@ -29,6 +29,7 @@ class App extends Component {
       lat: null,
       lng: null,
       advice: [],
+      myProducts: [],
     }
   }
 
@@ -44,6 +45,25 @@ class App extends Component {
   handleSetFilter = (field, value) => {
     this.setState = ({
       [field]: value
+    })
+  }
+
+  getAdviceById = (id) => {
+    return this.state.advice.find(advice => advice.id === id);
+  }
+
+  addProduct = (product) => {
+    this.setState({
+      myProducts: [...this.state.myProducts, product]
+    })
+  }
+
+  removeProduct = (product) => {
+    let idx = this.state.myProducts.indexOf(product);
+    let newProductList = [...this.state.myProducts];
+    newProductList.splice(idx, 1);
+    this.setState({
+      myProducts: [...newProductList]
     })
   }
 
@@ -107,6 +127,8 @@ class App extends Component {
               user={this.state.user}
               babyCat={this.state.babyCat}
               handleSetFilter={this.handleSetFilter}
+              addProduct={this.addProduct}
+              removeProduct={this.removeProduct}
             />
           )} />
           <Route exact path='/products/:id' render={(props) => (
@@ -115,6 +137,8 @@ class App extends Component {
               user={this.state.user}
               babyCat={this.state.babyCat}
               handleSetFilter={this.handleSetFilter}
+              addProduct={this.addProduct}
+              removeProduct={this.removeProduct}
             />
           )} />
           <Route exact path='/community' render={(props) => (
@@ -135,11 +159,12 @@ class App extends Component {
               handleSetFilter={this.handleSetFilter}
             />
           )} />
-          <Route exact path='/community/advice' render={(props) => (
+          <Route path='/community/advice' render={(props) => (
             <AdvicePage
               {...props}
               user={this.state.user}
               handleSetFilter={this.handleSetFilter}
+              getAdviceById={this.getAdviceById}
             />
           )} />
           <Route exact path='/community/advice/new' render={(props) => (
@@ -148,13 +173,14 @@ class App extends Component {
               user={this.state.user}
             />
           )} />
-          <Route exact path='/community/advice/:id' render={(props) => (
+          {/* <Route exact path='/community/advice/:id' render={(props) => (
             <AdviceDetailPage
               {...props}
               user={this.state.user}
-              advice={this.state.advice.find(advice => advice._id === props.match.params.advice_id)}
+              // advice={this.state.advice.find(advice => advice._id === props.match.params.advice_id)}
+              getAdviceById={this.getAdviceById}
             />
-          )} />
+          )} /> */}
           <Route exact path='/playdates' render={(props) => (
             <PlayDatesPage
               {...props}

@@ -7,6 +7,7 @@ class NeedAdviceForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             title: '',
             content: '',
             postedBy: this.props.user,
@@ -26,7 +27,7 @@ class NeedAdviceForm extends Component {
         try {
             await adviceService.createAdvice(this.state);
             this.props.handleAddAdvice();
-            this.props.history.push('/:id');
+            this.props.history.push('/community/advice/:id');
         } catch (err) {
             this.props.updateMessage(err.message);
         }

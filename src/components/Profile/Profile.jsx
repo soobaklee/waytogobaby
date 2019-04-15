@@ -1,9 +1,6 @@
 import React from 'react';
 // import { Redirect, Link } from 'react-router-dom';
-// import ReactIntl from 'react-intl';
-
-// var IntlMixin = ReactIntl.IntlMixin;
-// var FormattedDate = ReactIntl.FormattedDate;
+import moment from 'moment';
 
 const Profile = props => {
 
@@ -23,7 +20,7 @@ const Profile = props => {
                 </tr>
                 <tr>
                     <td>Birthdate:</td>
-                    <td>{props.user.birthdate.toLocaleString()}</td>
+                    <td>{moment(props.user.birthdate).format("MMM Do YY")}</td>
                 </tr>
             </table>
         </div>

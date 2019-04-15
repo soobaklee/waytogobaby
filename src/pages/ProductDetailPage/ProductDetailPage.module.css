@@ -1,6 +1,7 @@
 .ProductBox {
     border: 2px solid var(--primary-color);
     align-items: center;
+    max-width: 700px;
 }
 
 .div {

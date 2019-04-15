@@ -32,18 +32,17 @@ function show(req, res) {
         .populate('postedBy')
         .exec((err, advice) => {
             res.json({advice: advice})
-            // res.render('advice/show', {
-            //     postedBy: advice.postedBy,
-            //     user: req.user,
-            //     advice
-            // });
+        //     res.render('advice/show', {
+        //         postedBy: advice.postedBy,
+        //         user: req.user,
+        //         advice
+        //     });
         });
 
 }
 
 function create(req, res) {
     var advice = new Advice(req.body);
-    console.log(req.body);
     // advice.postedBy = req.user._id;
     advice.save(function (err) {
         if (err) return res.redirect('/advice/new');
