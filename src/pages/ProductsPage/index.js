@@ -14,21 +14,21 @@ class ProductsPage extends Component {
     // }
 
 
-    render() {        
+    render() {
 
         return (
             <div className={`${styles.div}`}>
-                    {this.props.babyCat && this.props.babyCat.map((cat, idx) =>
-                <div className={`${styles.ProductBox}`} key={`${idx}`}>
+                {this.props.babyCat && this.props.babyCat.map((cat, idx) =>
+                    <div className={`${styles.ProductBox}`} key={`${idx}`}>
                         <Link to={`/products/${idx}`}>
                             <h5>{cat.name}</h5><br></br>
                             <div className={`${styles.thumbnail}`}>
-                            <img src={`${cat.thumbnailImage}`} alt={`${cat.name}`} ></img>
+                                <img src={`${cat.thumbnailImage}`} alt={`${cat.name}`} ></img>
                             </div><br></br>
                             <h4>MSRP: {cat.msrp}</h4>
                         </Link>
-                </div>
-                    )}
+                    </div>
+                )}
             </div>
         )
     }

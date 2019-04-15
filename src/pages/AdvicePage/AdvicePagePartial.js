@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import adviceService from '../../utils/adviceService';
+import moment from 'moment';
 import styles from './AdvicePage.module.css';
 
 
@@ -32,7 +33,7 @@ class AdvicePagePartial extends React.Component {
                 <Link to={`/community/advice/${advice._id}`}>
                     <p>Concern: {advice.title}</p>
                     <p className={`${styles.content}`}>{advice.content}</p>
-                    <p>Posted By: {advice.postedBy[0].name} on {advice.updatedAt}</p>
+                    <p>Posted by {advice.postedBy[0].name} on {moment(advice.updatedAt).format('LL')}</p>
                 </Link>
             </div>
         ));
@@ -41,18 +42,18 @@ class AdvicePagePartial extends React.Component {
             <div>
                 <h1>Take part in the community by encouraging others and through sharing your own concerns</h1>
                 <Link to='/community/advice/new'><button className='submit-btn'>Share your concern</button></Link>
+                <Link to='/community/advice/'><button className='submit-btn'>See more of the community</button></Link>
                 {this.state.updateMessage}
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
                 </div>
-                <Link to='/community/advice/'><button className='submit-btn'>See more of the community</button></Link>
             </div>
             :
             <div>
+                <Link to='/login'><p>Login to see more of the community and to share your concern with the community.</p></Link>
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
                 </div>
-                <Link to='/login'><p>Login to see more of the community and to share your concern with the community.</p></Link>
             </div>
 
         return (

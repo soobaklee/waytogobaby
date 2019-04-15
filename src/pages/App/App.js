@@ -206,6 +206,9 @@ class App extends Component {
             />
           } />
         </Switch>
+        <div className='footer'>
+          <p>Copyright Way To Go Baby</p>
+        </div>
       </div >
     );
   }

@@ -10,15 +10,14 @@
     margin: 15px;
     /* width: 400px;<br></br> */
     justify-content: center;
-    /* display: flex;
-    flex-flow: column; */
-}
-
-.ProductBox a {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
 }
+
+/* .ProductBox a {
+    display: flex;
+    justify-content: center;
+} */
 
 .thumbnailImage {
     max-width: 350px;

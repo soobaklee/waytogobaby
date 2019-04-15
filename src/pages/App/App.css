@@ -1,3 +1,9 @@
+html {
+  min-height: 100vh;
+  position: relative;
+  /* padding-bottom: 80px; */
+}
+
 .App {
   text-align: center;
   font-family: 'Quicksand', sans-serif, 'Indie Flower', cursive, 'Helvetica';
@@ -36,4 +42,16 @@
 a {
   text-decoration: none;
   color: var(--text-color);
+}
+
+.footer {
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  margin-top: 10%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
 }
