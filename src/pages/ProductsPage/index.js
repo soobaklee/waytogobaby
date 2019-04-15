@@ -22,8 +22,8 @@ class ProductsPage extends Component {
                 <div className={`${styles.ProductBox}`} key={`${idx}`}>
                         <Link to={`/products/${idx}`}>
                             <h5>{cat.name}</h5>
-                            <h4>{cat.brandName}</h4>
-                            <p>{cat.shortDescription}</p>
+                            <img src={`${cat.thumbnailImage}`} alt={`${cat.name}`} ></img>
+                            <h4>{cat.msrp}</h4>
                         </Link>
                 </div>
                     )}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Weather from '../../components/Weather/Weather'
 
 const LandingPage = (props) => {
@@ -14,15 +15,16 @@ const LandingPage = (props) => {
                     We hope you are enjoying your adventure and <br></br>
                 Welcome to Way To Go Baby!
                 </p>
-            <Weather
-                
-                lat={props.lat}
-                lng={props.lng}
-                temp={props.temp}
-                icon={props.icon}
-                city={props.city}
-                user={props.user}
-            />
+            <Link to='/playdates'>
+                <Weather
+                    lat={props.lat}
+                    lng={props.lng}
+                    temp={props.temp}
+                    icon={props.icon}
+                    city={props.city}
+                    user={props.user}
+                />
+            </Link>
             <p className="weather-description">
                 {(() => {
                     switch (props.icon) {
