@@ -29,8 +29,11 @@ View the necessities page to peruse through hundreds of baby & toddler products.
 
 View the community page to checkout items other families no longer need or are willing to share. The community page also provides access to a discussion board to pose concerns and help others through theirs.
 
+## Ice Box
+
 For all the parents looking for new friends, Way To Go Baby also is the way to find a new friend or a group of baby pals to commune with and establish life-long relationships for yourself or for babies. This is an Ice Box feature to develop, but it should be ready in the next month.
 
+Other Ice Box items:
+Make Share/Discussion Board Full CRUD
+Set up PlayDates Calendar
 
-
-## Ice Box

@@ -1,16 +1,16 @@
 import React from 'react';
 
 const Weather = props => {
-    let intro = props.user ?
-        <div className='Temp'>
-            <h1>{props.city} Weather</h1>
-            <p className="Temperature">{props.temp} &#176;F</p>
-        </div>
-        :
-        <div className='Temp'>
-            <h1>{props.city} Weather</h1>
-            <p className="Temperature">{props.temp} &#176;F</p>
-        </div>
+    // let intro = props.user ?
+    //     <div className='Temp'>
+    //         <h1>{props.city} Weather</h1>
+    //         <p className="Temperature">{props.temp} &#176;F</p>
+    //     </div>
+    //     :
+    //     <div className='Temp'>
+    //         <h1>{props.city} Weather</h1>
+    //         <p className="Temperature">{props.temp} &#176;F</p>
+    //     </div>
 
     return (
         <div>

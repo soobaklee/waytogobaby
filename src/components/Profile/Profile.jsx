@@ -1,13 +1,11 @@
 import React from 'react';
-// import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import moment from 'moment';
 
 const Profile = props => {
 
-    // mixins: [IntlMixin];
-
     let profile = props.user ?
-        <div>
+        <div className='Profile-display'>
             <h1>{props.user.name}'s Profile</h1>
             <table>
                 <tr>
@@ -20,28 +18,20 @@ const Profile = props => {
                 </tr>
                 <tr>
                     <td>Birthdate:</td>
-                    <td>{moment(props.user.birthdate).format("LL")}</td>
+                    <td>{moment(props.user.birthdate).format('LL')}</td>
                 </tr>
             </table>
         </div>
         :
-        <div>
-            <h1>No User Detected</h1>
-            {/* <Redirect to='/login' />  */}
+        <div className='Profile-display'>
+            {/* <h1>No User Detected</h1> */}
+            <Redirect to='/login' /> 
         </div>
 
     return (
         <div>
             {profile}
             <div>
-                <p>
-                    Placeholder
-                    {/* <FormattedDate
-                        value={props.user.birthdate}
-                        day="numeric"
-                        month="long"
-                        year="numeric" /> */}
-                </p>
 
             </div>
         </div>
