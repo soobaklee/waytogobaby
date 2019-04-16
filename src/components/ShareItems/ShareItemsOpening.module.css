@@ -1,0 +1,6 @@
+.opening {
+    display: flex;
+    flex-flow: row;
+    height: 200px;
+    max-width: 1000px;
+}

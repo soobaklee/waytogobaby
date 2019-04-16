@@ -2,13 +2,18 @@
     border: 2px solid black;
     width: 80%;
     margin: 0 auto;
+    border-top: 0 !important;
+}
+
+.adviceList:last-child {
+    border-top: 2px solid black !important;
 }
 
 .adviceDiv {
     display: flex;
     justify-content: center;
     flex-flow: column-reverse;
-    margin-bottom: 80px
+    margin-bottom: 80px;
 }
 
 .content {

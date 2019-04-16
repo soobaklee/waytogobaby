@@ -28,7 +28,7 @@ class AdvicePagePartial extends React.Component {
     }
 
     render(props) {
-        let adviceList = this.state.advice.slice(0, 5).map((advice, idx) => (
+        let adviceList = this.state.advice.slice(-6, -1).map((advice, idx) => (
             <div className={`${styles.adviceList}`} key={idx}>
                 <Link to={`/community/advice/${advice._id}`}>
                     <p>Concern: {advice.title}</p>
@@ -40,9 +40,9 @@ class AdvicePagePartial extends React.Component {
 
         let userview = this.props.user ?
             <div>
-                <h1>Take part in the community by encouraging others and through sharing your own concerns</h1>
-                <Link to='/community/advice/new'><button className='submit-btn'>Share your concern</button></Link>
-                <Link to='/community/advice/'><button className='submit-btn'>See more of the community</button></Link>
+                <Link to='/community/advice/'><button className='submit-btn'>COMMUNITY ADVICE</button></Link>&nbsp;&nbsp;&nbsp;
+                <Link to='/community/advice/new'><button className='submit-btn'>SHARE MY CONCERN</button></Link>
+                <h3>Take part in the community by encouraging others and through sharing your own concerns</h3>
                 {this.state.updateMessage}
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
@@ -50,7 +50,7 @@ class AdvicePagePartial extends React.Component {
             </div>
             :
             <div>
-                <Link to='/login'><p>Login to see more of the community and to share your concern with the community.</p></Link>
+                <Link to='/login'><button className='submit-btn'>LOGIN TO LEARN MORE ABOUT YOUR COMMUNITY AND TO SHARE A CONCERN</button></Link>
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
                 </div>

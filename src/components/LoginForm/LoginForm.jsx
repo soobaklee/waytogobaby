@@ -30,23 +30,32 @@ class LoginForm extends Component {
         }
     }
 
+    isFormInvalid() {
+        return !(this.state.email && this.state.password);
+    }
+
     render() {
         return (
             <div className="LoginPage">
-                <header className="header">Welcome Back!</header>
+                <h1 className="header">Welcome Back!</h1>
                 <form className="sform" onSubmit={this.handleSubmit}>
-                    <div className="sform-line">
-                        <label className="sform-label">Email:&nbsp;</label>                        
-                        <input type="email" className="sform-input" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
-                    </div>
-                    <div className="sform-line">
-                        <label className="sform-label">Password:&nbsp;</label>                        
-                        <input type="password" className="sform-input" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
-                    </div>
-                    <div className="sform-line">
-                        <button className="btn-enter">Log In</button>
-                        <Link to='/' >Go Back</Link>
-                    </div>
+                    <table>
+                        <tbody>
+                            <tr className="sform-line">
+                                <td><label className="sform-label">Email:&nbsp;</label></td>
+                                <td><input type="email" className="sform-input" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} /></td>
+                            </tr>
+                            <tr className="sform-line">
+                                <td><label className="sform-label">Password:&nbsp;</label></td>
+                                <td><input type="password" className="sform-input" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} /></td>
+                            </tr>
+                            <tr className="form-btn-line">
+                                <td></td>
+                                <td><button className="submit-btn" disabled={this.isFormInvalid()}>Log In</button>&nbsp;
+                                <Link to='/' ><button className="submit-btn" id="Go-back">Go Back</button></Link></td>
+                            </tr>   
+                        </tbody>
+                    </table>
                 </form>
             </div>
         );

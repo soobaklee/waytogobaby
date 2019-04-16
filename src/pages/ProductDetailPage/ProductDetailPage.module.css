@@ -9,3 +9,7 @@
     flex-flow: column wrap;
     justify-content: center;
 }
+
+img {
+    max-width: 400px;
+}

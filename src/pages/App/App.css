@@ -1,7 +1,12 @@
 html {
   min-height: 100vh;
   position: relative;
-  /* padding-bottom: 80px; */
+  font-family: 'Quicksand', sans-serif, 'Indie Flower', cursive, 'Helvetica';
+  width: 100%;
+}
+
+body {
+  width: 100%;
 }
 
 .App {
@@ -11,32 +16,23 @@ html {
 
 .App-header {
   background-color: var(--primary-color);
-  min-height: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Fascinate Inline', cursive;
 }
 
 .App-header a {
   text-decoration: none;
   color: var(--text-color);
+  padding-top: 10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-header h1 {
+  margin: 0 auto;
+  font-size: 60px;
 }
 
 a {
@@ -54,4 +50,81 @@ a {
   align-content: center;
   justify-content: center;
   width: 100%;
+}
+
+.submit-btn {
+  /* padding: 10px; */
+  font-size: 15px;
+  min-height: 40px;
+  min-width: 100px;
+  background: var(--button-color);
+  border: 1px solid var(--button-border);
+  margin: 5px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#Go-back {
+  color: rgb(102, 102, 102);
+}
+
+.wrapText {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.sform {
+  display: flex;
+  justify-content: center;
+}
+
+.sform {
+  font-size: 20px;
+  min-height: 40px;
+  min-width: 100px;
+}
+
+.sform input {
+  min-height: 40px;
+  text-align: center;
+  min-width: 300px;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif; 
+}
+
+.sform .submit-btn {
+  font-size: 20px;
+  margin-right: 0;
+}
+
+.sform {
+  align-content: center;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+table {
+  margin-bottom: 80px;
+}
+
+tr .form-btn-line {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .sform {
+    font-size: 15px;
+  }
+  .sform input {
+    font-size: 15px;
+    min-height: 30px;
+    min-width: 100px;
+  }
 }

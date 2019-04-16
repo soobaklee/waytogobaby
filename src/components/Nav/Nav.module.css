@@ -1,18 +1,57 @@
 .Nav {
     background: var(--primary-color);
+    list-style: none;
     display: inline;
     display: flex;
     flex-wrap: row;
     justify-content: space-around;
     margin: 0 auto;
-    margin-bottom: 20px;
+    padding: 20px;
 }
 
-.Nav li {
-    list-style: none;
+.Nav li:hover, .Nav button:hover, .Dropdown a:hover {
+    background: yellow;
 }
 
-.Nav li a{
-    text-decoration: none;
-    color: var(--text-color2);
+.Dropdown a {
+    max-height: 35px;
 }
+
+.Nav li, .Nav button a, .Dropdown a {
+    padding: 10px 20px;
+    min-width: 60px;
+    font-size: 15px;
+}
+
+button {
+    /* height: 30px; */
+    background: var(--primary-color);
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+}
+
+.Menu {
+    display: block;
+    /* max-width: 110px; */
+    line-height: 170%;
+}
+
+.Dropdown {
+    display: none;
+}
+
+.Menu:hover .Dropdown {
+    display: block;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .Nav, .Menu, .Dropdown {
+      display: flex;
+      flex-flow: column;
+    }
+
+
+  }

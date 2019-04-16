@@ -20,7 +20,7 @@ const Profile = props => {
                 </tr>
                 <tr>
                     <td>Birthdate:</td>
-                    <td>{moment(props.user.birthdate).format("MMM Do YY")}</td>
+                    <td>{moment(props.user.birthdate).format("LL")}</td>
                 </tr>
             </table>
         </div>

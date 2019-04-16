@@ -8,7 +8,7 @@ class PlayDatesPage extends Component {
     render() {
         return (
             <div>
-                <h1>Organize a Play Date!</h1>
+                <h1>PlayDates To Go</h1>
                 <Weather
                     lat={this.props.lat}
                     lng={this.props.lng}

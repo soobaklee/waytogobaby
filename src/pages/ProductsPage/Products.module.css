@@ -1,24 +1,33 @@
+.firstdiv {
+    box-sizing: border-box;
+}
+
 .div {
-    column-width: 450px;
+    column-width: 250px;
     justify-content: center;
+    display: flex;
+    flex-flow: row wrap;
     margin: 0 auto;
     align-items: center;
+    /* -webkit-box-decoration-break: clone; */
+    /* -o-box-decoration-break: clone; */
+    box-decoration-break: clone !important;
 }
 
 .ProductBox {
     border: 2px solid var(--primary-color);
+    padding: 4px;
+    font-size: 20px;
     margin: 15px;
-    /* width: 400px;<br></br> */
+    width: 250px;
     justify-content: center;
     display: flex;
     flex-flow: row wrap;
+    -webkit-box-decoration-break: clone;
+    -o-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
-/* .ProductBox a {
-    display: flex;
-    justify-content: center;
-} */
-
 .thumbnailImage {
-    max-width: 350px;
+    max-width: 250px;
 }
