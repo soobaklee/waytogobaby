@@ -36,4 +36,5 @@ For all the parents looking for new friends, Way To Go Baby also is the way to f
 Other Ice Box items:
 Make Share/Discussion Board Full CRUD
 Set up PlayDates Calendar
+props.match.url
 

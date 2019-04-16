@@ -98,7 +98,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header"><Link to='/'><h1>WAY TO GO BABY</h1></Link></header>
+        <header className="App-header"><Link to='/'><h1>WAY TO GO BABY :)</h1></Link></header>
         <Nav
           user={this.state.user}
           handleLogout={this.handleLogout}

@@ -61,6 +61,7 @@ a {
   border: 1px solid var(--button-border);
   margin: 5px;
   font-family: 'Quicksand', sans-serif;
+  border-radius: 4px;
 }
 
 #Go-back {

@@ -12,7 +12,7 @@ const Nav = props => {
                 <div className={`${styles.Menu}`}>
                     <li><Link to='/profile' className='Nav-welcome'>Hi {(props.user.name).toUpperCase()}</Link></li>
                     <div className={`${styles.Dropdown}`}>
-                        <li className={`${styles.Profilelink}`}><Link to='/profile' >PROFILE</Link></li>
+                        <li className={`${styles.Profilelink}`}><Link to='/profile'>PROFILE</Link></li>
                         <li><Link to='' onClick={props.handleLogout} > LOG OUT</Link></li>
                     </div>
                 </div>
