@@ -53,8 +53,9 @@ class AdvicePage extends React.Component {
 
         let userview = this.props.user ?
             <div>
-                <h1>Take part in the community by encouraging others and through sharing your own concerns</h1>
+                <h1>Community Discussion & <br /> Advice Board</h1>
                 <Link to='/community/advice/new'><button className='submit-btn'>Share your concern</button></Link>
+                <p>Take part in the community by encouraging others and by starting your own discussion.</p>
                 {this.state.updateMessage}
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
@@ -62,6 +63,7 @@ class AdvicePage extends React.Component {
             </div>
             :
             <div>
+                <h1>Community Discussion & <br /> Advice Board</h1>
                 <p>Login to share your concern with the community.</p>
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
@@ -72,7 +74,7 @@ class AdvicePage extends React.Component {
             <Switch>
 
                 <Route exact path='/community/advice' render={(props) => (
-                    <div className={`${styles.advicePage}`}>
+                    <div className='Advice'>
                         {/* <div className="filterBox">
                     <label>Filter for: </label>
                     <input value={this.props.filterAdviceTopic} 
@@ -88,9 +90,9 @@ class AdvicePage extends React.Component {
                         advice={al} />
                 )} />
             </Switch>
-                
+
         )
     }
 }
-        
+
 export default AdvicePage;

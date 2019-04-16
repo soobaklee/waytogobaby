@@ -1,8 +1,9 @@
 .adviceList {
     border: 2px solid black;
-    width: 80%;
+    width: 98%;
     margin: 0 auto;
     border-top: 0 !important;
+    max-width: 1000px;
 }
 
 .adviceList:last-child {
@@ -13,7 +14,8 @@
     display: flex;
     justify-content: center;
     flex-flow: column-reverse;
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
+    margin-top: 20px;
 }
 
 .content {

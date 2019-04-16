@@ -1,3 +1,7 @@
+.Container {
+    background: var(--primary-color);
+}
+
 .Nav {
     background: var(--primary-color);
     list-style: none;
@@ -6,10 +10,11 @@
     flex-wrap: row;
     justify-content: space-around;
     margin: 0 auto;
-    padding: 20px;
+    padding: 15px;
+    max-width: 800px;
 }
 
-.Nav li:hover, .Nav button:hover, .Dropdown a:hover {
+.Nav li:hover, .Dropdown a:hover {
     background: yellow;
 }
 
@@ -19,12 +24,11 @@
 
 .Nav li, .Nav button a, .Dropdown a {
     padding: 10px 20px;
-    min-width: 60px;
+    /* min-width: 60px; */
     font-size: 15px;
 }
 
 button {
-    /* height: 30px; */
     background: var(--primary-color);
     border: none;
     font-family: 'Quicksand', sans-serif;
@@ -32,8 +36,7 @@ button {
 }
 
 .Menu {
-    display: block;
-    /* max-width: 110px; */
+    display: inline-block;
     line-height: 170%;
 }
 
@@ -52,6 +55,8 @@ button {
       display: flex;
       flex-flow: column;
     }
-
+    .Profilelink {
+        display: none;
+    }
 
   }

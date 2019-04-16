@@ -57,7 +57,7 @@ a {
   font-size: 15px;
   min-height: 40px;
   min-width: 100px;
-  background: var(--button-color);
+  background: var(--primary-color);
   border: 1px solid var(--button-border);
   margin: 5px;
   font-family: 'Quicksand', sans-serif;
@@ -114,6 +114,71 @@ tr .form-btn-line {
   align-items: center;
   justify-content: center;
   width: 550px;
+}
+
+.Landing {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.Advice, .Community {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding-bottom: 80px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.Community a {
+  margin: 0 auto;
+}
+
+.Intro {
+  align-items: center;
+  max-width: 600px;
+  align-content: center;
+  text-align: center;
+  margin: 20px;
+}
+
+.Intro div {
+  display: inline-block;
+  font-size: 20px;
+}
+
+.Weather {
+  max-width: 450px;
+  margin: 20px;
+}
+
+.Temperature {
+  font-size: 40px;
+  margin: 0;
+  align-self: center;
+}
+
+.Weather img {
+  width: 80px;
+  height: 80px;
+}
+
+.Weather p {
+  margin: 0 auto;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.Weather-title {
+  margin-bottom: 15px;
+}
+
+.Wdata {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 
 

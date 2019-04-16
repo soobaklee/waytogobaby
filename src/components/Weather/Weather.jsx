@@ -3,24 +3,27 @@ import React from 'react';
 const Weather = props => {
     let intro = props.user ?
         <div className='Temp'>
-            <h2>Today in {props.city} for {props.user.name}</h2>
-            {props.temp}
+            <h1>{props.city} Weather</h1>
+            <p className="Temperature">{props.temp}</p>
         </div>
         :
         <div className='Temp'>
-            <h2>Today in {props.city}</h2>
-            {props.temp}
+            <h1>{props.city} Weather</h1>
+            <p className="Temperature">{props.temp}</p>
         </div>
 
     return (
-        <div className='Weather'>
-            {intro}
-            {props.icon &&
-                <img className='Temp-icon'
-                    src={`https://openweathermap.org/img/w/${props.icon}.png`}
-                    alt={`${props.temp} Conditions`}
-                />
-            }
+        <div>
+            <h1 className="Weather-title">{props.city} Weather</h1>
+            <div className="Wdata">
+                <div className="Temperature">{props.temp}</div>
+                {props.icon &&
+                    <img className='Temp-icon'
+                        src={`https://openweathermap.org/img/w/${props.icon}.png`}
+                        alt={`${props.temp} Conditions`}
+                    />
+                }
+            </div>
         </div>
     );
 }

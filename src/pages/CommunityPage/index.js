@@ -7,18 +7,18 @@ class CommunityPage extends Component {
 
     render(props) {
         return (
-            <div>
-                <Link to='/community/advice'>Advice</Link>&nbsp;&nbsp;
+            <div className='Community'>
                 <Link to='/community/share'>
-                <ShareItemsOpening
-                    {...props}
-                    user={this.props.user}
-                /></Link>
-                {}
+                    <ShareItemsOpening
+                        {...props}
+                        user={this.props.user}
+                    />
+                </Link>
+
                 <AdvicePagePartial
                     {...props}
                     user={this.props.user}
-                />                
+                />
             </div>
         )
     }

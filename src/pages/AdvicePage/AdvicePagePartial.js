@@ -40,20 +40,24 @@ class AdvicePagePartial extends React.Component {
 
         let userview = this.props.user ?
             <div>
-                <Link to='/community/advice/'><button className='submit-btn'>COMMUNITY ADVICE</button></Link>&nbsp;&nbsp;&nbsp;
+                <h1>Community Discussion & <br /> Advice Board</h1>
+                <Link to='/community/advice/'><button className='submit-btn'>COMMUNITY BOARD</button></Link>&nbsp;&nbsp;&nbsp;
                 <Link to='/community/advice/new'><button className='submit-btn'>SHARE MY CONCERN</button></Link>
-                <h3>Take part in the community by encouraging others and through sharing your own concerns</h3>
+                <h3>Take part in the community by encouraging others and starting your own discussion</h3>
                 {this.state.updateMessage}
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
                 </div>
+                <h3>Interested in more? Login or sign up to see the full discussion board.</h3>
             </div>
             :
             <div>
+                <h1>Community Discussion & <br /> Advice Board</h1>
                 <Link to='/login'><button className='submit-btn'>LOGIN TO LEARN MORE ABOUT YOUR COMMUNITY AND TO SHARE A CONCERN</button></Link>
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
                 </div>
+                <h3>Interested in more? Login or sign up to see the full discussion board.</h3>
             </div>
 
         return (

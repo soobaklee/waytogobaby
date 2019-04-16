@@ -1,6 +1,29 @@
-.opening {
+.Opening {
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     height: 200px;
     max-width: 1000px;
+    text-align: center;
+    margin-top: 20px;
+    align-items: center;
+    background: var(--dark-color);
+    /* padding: 0 30px; */
+    text-align: center;
+    justify-content: center;
+}
+
+.Head {
+    font-size: 50px;
+    margin: 0 10px;
+    display: block;
+    color: turquoise;
+    text-align: center;
+}
+
+.wrapText {
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 30px;
+    margin: 0 10px;
+    color: var(--text-light);
 }

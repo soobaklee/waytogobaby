@@ -14,10 +14,10 @@ const AdviceDetailPage = props => {
 
     let adviceShow = advice ?
         <div className={`${styles.content}`}>
-            <h1>Show Advice Details</h1>
-            <h5>{advice.title}</h5>
-            <h5>{advice.content}</h5>
-            <h5>Shared by {advice.postedBy[0].name}, {moment(advice.postedBy[0].updatedAt).calendar()}</h5>
+            <h1>Join the discussion...</h1>
+            <h3>Shared by {advice.postedBy[0].name}, {moment(advice.postedBy[0].updatedAt).calendar()}</h3>
+            <h1>{advice.title}</h1>
+            <h3>{advice.content}</h3>
         </div>
         :
         <div>Waiting to Load</div>

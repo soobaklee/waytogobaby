@@ -15,7 +15,7 @@
 }
 
 .ProductBox {
-    border: 2px solid var(--primary-color);
+    border: 3px solid var(--primary-color);
     padding: 4px;
     font-size: 20px;
     margin: 15px;
@@ -26,6 +26,7 @@
     -webkit-box-decoration-break: clone;
     -o-box-decoration-break: clone;
     box-decoration-break: clone;
+    border-radius: 10%;
 }
 
 .thumbnailImage {

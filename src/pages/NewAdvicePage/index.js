@@ -25,10 +25,6 @@ class NewAdvicePage extends React.Component {
         this.setState({ advice });
     }
 
-    // async componentDidMount() {
-    //     const advice = await adviceService.index();
-    //     this.state.handleUpdateAdvice(advice);
-    // }
 
     render(props) {
         let needAdvice = this.props.user ?
@@ -47,7 +43,6 @@ class NewAdvicePage extends React.Component {
 
         return (
             <div>
-
                 {needAdvice}
             </div>
         )

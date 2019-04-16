@@ -4,25 +4,30 @@ import styles from './Nav.module.css'
 
 const Nav = props => {
     let nav = props.user ?
-        <div className={`${styles.Nav}`}>
-            <button><Link to='/products'>NECESSITIES</Link></button>
-            <button><Link to='/community'>COMMUNITY</Link></button>
-            <button><Link to='/playdates' >PLAYDATES</Link></button>
-            <div className={`${styles.Menu}`}>
-                <button><Link to='/profile' className='Nav-welcome'>Hi {(props.user.name).toUpperCase()}</Link></button>
-                <div className={`${styles.Dropdown}`}>
-                    <Link to='/profile' >PROFILE</Link>
-                    <Link to='' onClick={props.handleLogout} > LOG OUT</Link>
+        <div className={`${styles.Container}`}>
+            <div className={`${styles.Nav}`}>
+                <li><Link to='/products'>NECESSITIES</Link></li>
+                <li><Link to='/community'>COMMUNITY</Link></li>
+                <li><Link to='/playdates' >PLAYDATES</Link></li>
+                <div className={`${styles.Menu}`}>
+                    <li><Link to='/profile' className='Nav-welcome'>Hi {(props.user.name).toUpperCase()}</Link></li>
+                    <div className={`${styles.Dropdown}`}>
+                        <li className={`${styles.Profilelink}`}><Link to='/profile' >PROFILE</Link></li>
+                        <li><Link to='' onClick={props.handleLogout} > LOG OUT</Link></li>
+                    </div>
                 </div>
             </div>
         </div>
         :
-        <ul className={`${styles.Nav}`}>
-            <li><Link to='/products'>NECESSITIES</Link></li>
-            <li><Link to='/community'>COMMUNITY</Link></li>
-            <li><Link to='/login'>LOGIN</Link></li>
-            <li><Link to='/signup'>SIGN UP</Link></li>
-        </ul>
+        <div className={`${styles.Container}`}>
+            <ul className={`${styles.Nav}`}>
+                <li><Link to='/products'>NECESSITIES</Link></li>
+                <li><Link to='/community'>COMMUNITY</Link></li>
+                <li><Link to='/login'>LOGIN</Link></li>
+                <li><Link to='/signup'>SIGN UP</Link></li>
+            </ul>
+        </div>
+
 
     return (
         <div>

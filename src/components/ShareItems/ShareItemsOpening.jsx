@@ -4,9 +4,9 @@ import styles from './ShareItemsOpening.module.css';
 class ShareItemsOpening extends Component {
     render() {
         return (
-            <div className={`${styles.opening}`}>
-                <p className={`${styles.head}`}>WAY TO SHARE</p>
-                <p className='wrapText' >Post the items you are ready to share with the community and wait for someone to get in contact with you!</p>
+            <div className={`${styles.Opening}`}>
+                <p className={`${styles.Head}`}>WAY TO SHARE</p>
+                <p className={`${styles.wrapText}`} >Post items to share with the community.<br/> Reduce, reuse, recycle & live green!</p>
             </div>
         )
     }
