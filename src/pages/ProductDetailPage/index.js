@@ -19,7 +19,7 @@ const ProductDetailPage = (props) => {
             <img src={`${props.babyCat[props.match.params.id].largeImage}`} alt={`${props.babyCat[props.match.params.id].name}`} ></img><br></br>
             <p>{props.babyCat[props.match.params.id].brandName} Model: {props.babyCat[props.match.params.id].modelNumber}</p>
             <p>Description: {props.babyCat[props.match.params.id].shortDescription}</p>
-            <p>MSRP: {props.babyCat[props.match.params.id].msrp}</p>
+            <p>MSRP: ${props.babyCat[props.match.params.id].msrp}</p>
         </div>
     )
     // }

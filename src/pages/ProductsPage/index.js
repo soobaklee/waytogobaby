@@ -26,7 +26,7 @@ class ProductsPage extends Component {
                                 <div className={`${styles.thumbnail}`}>
                                     <img src={`${cat.thumbnailImage}`} alt={`${cat.name}`} ></img>
                                 </div>
-                                <h4>msrp: {cat.msrp}</h4>
+                                <h4>msrp: ${cat.msrp}</h4>
                             </Link>
                         </div>
                     )}
