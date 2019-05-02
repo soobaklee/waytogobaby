@@ -1,5 +1,4 @@
 import React from 'react';
-// import { getAllBabyProdCat } from '../../utils/walmartService';
 import styles from './ProductDetailPage.module.css';
 
 const ProductDetailPage = (props) => {

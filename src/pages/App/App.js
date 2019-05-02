@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, Link } from 'react-router-dom';
-// import { IntlProvider } from "react-intl"
 import LoginPage from '../Login';
 import SignupPage from '../Signup';
 import Nav from '../../components/Nav/Nav';
 import LandingPage from '../LandingPage';
 import ProductsPage from '../ProductsPage';
-import ProductDetailPage from '../ProductDetailPage';
+// import ProductDetailPage from '../ProductDetailPage';
 import CommunityPage from '../CommunityPage';
 import ShareItemsPage from '../ShareItemsPage';
 import AdvicePage from '../AdvicePage';
 import NewAdvicePage from '../NewAdvicePage';
-// import AdviceDetailPage from '../AdviceDetailPage';
 import PlayDatesPage from '../PlayDatesPage';
 import ProfilePage from '../ProfilePage';
 import { getCurrentLatLng } from '../../utils/geolocation';
-import { getAllBabyProdCat } from '../../utils/walmartService';
+// import { getAllBabyProdCat } from '../../utils/walmartService';
 import userService from '../../utils/userService';
 
 
@@ -82,7 +80,7 @@ class App extends Component {
           throw new Error('React LatLng Error');
         }));
 
-      const allBabyProdCat = await getAllBabyProdCat();
+      // const allBabyProdCat = await getAllBabyProdCat();
       
       this.setState({
         user,
@@ -91,7 +89,7 @@ class App extends Component {
         temp: Math.round(weatherData.main.temp),
         icon: weatherData.weather[0].icon,
         city: weatherData.name,
-        babyCat: allBabyProdCat.items
+        // babyCat: allBabyProdCat.items
     })
   }
 
@@ -125,22 +123,22 @@ class App extends Component {
             <ProductsPage
               {...props}
               user={this.state.user}
-              babyCat={this.state.babyCat}
-              handleSetFilter={this.handleSetFilter}
-              addProduct={this.addProduct}
-              removeProduct={this.removeProduct}
+              // babyCat={this.state.babyCat}
+              // handleSetFilter={this.handleSetFilter}
+              // addProduct={this.addProduct}
+              // removeProduct={this.removeProduct}
             />
           )} />
-          <Route exact path='/products/:id' render={(props) => (
+          {/* <Route exact path='/products/:id' render={(props) => (
             <ProductDetailPage
               {...props}
               user={this.state.user}
               babyCat={this.state.babyCat}
-              handleSetFilter={this.handleSetFilter}
-              addProduct={this.addProduct}
-              removeProduct={this.removeProduct}
+              // handleSetFilter={this.handleSetFilter}
+              // addProduct={this.addProduct}
+              // removeProduct={this.removeProduct}
             />
-          )} />
+          )} /> */}
           <Route exact path='/community' render={(props) => (
             <CommunityPage
               {...props}

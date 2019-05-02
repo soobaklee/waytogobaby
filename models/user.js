@@ -47,6 +47,10 @@ const userSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'Share'
     }],
+    productFav: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Product'
+    }],
     productReviews: [{
         type: Schema.Types.ObjectId,
         ref: 'Product'

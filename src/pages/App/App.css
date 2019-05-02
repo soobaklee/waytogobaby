@@ -124,6 +124,17 @@ tr .form-btn-line {
   padding-bottom: 80px;
 }
 
+.Landing img {
+  transform: rotate(0.5turn-);
+}
+
+.Intro-Images2 img {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);}
+
 .Advice, .Community, .Profile-display {
   display: flex;
   flex-flow: column wrap;

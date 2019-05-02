@@ -45,6 +45,12 @@ const LandingPage = (props) => {
                     })()}
                 </p>
             </div>
+            <div className="Intro-images">
+                <img src={require('../../images/first_avo.jpg')} alt="Baby Eating"></img>
+                <img src={require('../../images/eightmo.jpg')} alt="Baby Eight Months"></img>
+                <img src={require('../../images/library.jpg')} alt="Baby Library"></img>
+                <img src={require('../../images/playing.jpg')} alt="Baby Playing"></img>
+            </div>
         </div>
     )
 }

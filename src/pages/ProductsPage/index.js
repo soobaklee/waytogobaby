@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-// import { getAllBabyProdCat } from '../../utils/walmartService';
+import { Link, Route, Switch } from 'react-router-dom';
+import { getAllBabyProdCat } from '../../utils/walmartService';
+import userService from '../../utils/userService';
 import styles from './Products.module.css';
+import ProductDetailPage from '../ProductDetailPage';
 
 class ProductsPage extends Component {
-    // state = {};
+    constructor() {
+        super();
+        this.state = {
+            
+        }
+    }
 
-    // async componentDidMount() {
-    //     const allBabyProdCat = await getAllBabyProdCat();
-    //     this.setState({
-    //         babyCat: allBabyProdCat.items
-    //     })
-    // }
+    async componentDidMount() {
+        const user = userService.getUser();
+        const allBabyProdCat = await getAllBabyProdCat();
+        this.setState({
+            user,
+            babyCat: allBabyProdCat.items,
+        })
+    }
 
 
     render() {
-
-        return (
+        let productview =
             <div className={`${styles.firstdiv}`}>
                 <div className={`${styles.div}`}>
-                    {this.props.babyCat && this.props.babyCat.map((cat, idx) =>
+                    {this.state.babyCat && this.state.babyCat.map((cat, idx) =>
                         <div className={`${styles.ProductBox}`} key={`${idx}`}>
                             <Link to={`/products/${idx}`}>
                                 <p>{cat.name}</p><br></br>
@@ -32,8 +40,25 @@ class ProductsPage extends Component {
                     )}
                 </div>
             </div>
-        )
-    }
-}
 
+        return (
+            <Switch>
+                <Route exact path='/products' render={(props) => (
+                    <div className='ProductsView'>
+                        {productview}
+                    </div>
+                )}
+                />
+                <Route exact path='/products/:id' render={(props) => (
+                    <ProductDetailPage
+                        {...props}
+                        user={this.state.user}
+                        babyCat={this.state.babyCat}
+                    />
+                )} />
+            </Switch>
+            )
+        }
+    }
+    
 export default ProductsPage;

@@ -19,6 +19,7 @@ class ProfilePage extends Component {
                     // {...intlData}
                 />
 
+                
                 <p>This should show:<br></br>
                 1. User stats - and have them be able to update it as they please
                 2. Add littleOnes
