@@ -6,7 +6,6 @@ import SignupPage from '../Signup';
 import Nav from '../../components/Nav/Nav';
 import LandingPage from '../LandingPage';
 import ProductsPage from '../ProductsPage';
-// import ProductDetailPage from '../ProductDetailPage';
 import CommunityPage from '../CommunityPage';
 import ShareItemsPage from '../ShareItemsPage';
 import AdvicePage from '../AdvicePage';
@@ -14,7 +13,6 @@ import NewAdvicePage from '../NewAdvicePage';
 import PlayDatesPage from '../PlayDatesPage';
 import ProfilePage from '../ProfilePage';
 import { getCurrentLatLng } from '../../utils/geolocation';
-// import { getAllBabyProdCat } from '../../utils/walmartService';
 import userService from '../../utils/userService';
 
 
@@ -45,6 +43,14 @@ class App extends Component {
       [field]: value
     })
   }
+
+  handleChange = (e) => {
+    this.props.updateMessage('');
+    this.setState({
+        [e.target.name]: e.target.value
+    });
+}
+
 
   getAdviceById = (id) => {
     return this.state.advice.find(advice => advice.id === id);
@@ -80,7 +86,6 @@ class App extends Component {
           throw new Error('React LatLng Error');
         }));
 
-      // const allBabyProdCat = await getAllBabyProdCat();
       
       this.setState({
         user,
@@ -89,7 +94,6 @@ class App extends Component {
         temp: Math.round(weatherData.main.temp),
         icon: weatherData.weather[0].icon,
         city: weatherData.name,
-        // babyCat: allBabyProdCat.items
     })
   }
 
@@ -123,22 +127,8 @@ class App extends Component {
             <ProductsPage
               {...props}
               user={this.state.user}
-              // babyCat={this.state.babyCat}
-              // handleSetFilter={this.handleSetFilter}
-              // addProduct={this.addProduct}
-              // removeProduct={this.removeProduct}
             />
           )} />
-          {/* <Route exact path='/products/:id' render={(props) => (
-            <ProductDetailPage
-              {...props}
-              user={this.state.user}
-              babyCat={this.state.babyCat}
-              // handleSetFilter={this.handleSetFilter}
-              // addProduct={this.addProduct}
-              // removeProduct={this.removeProduct}
-            />
-          )} /> */}
           <Route exact path='/community' render={(props) => (
             <CommunityPage
               {...props}
@@ -148,6 +138,7 @@ class App extends Component {
               icon={this.state.icon}
               city={this.state.city}
               user={this.state.user}
+              handleChange={this.handleChange}
             />
           )} />
           <Route exact path='/community/share' render={(props) => (
@@ -155,6 +146,7 @@ class App extends Component {
               {...props}
               user={this.state.user}
               handleSetFilter={this.handleSetFilter}
+              handleChange={this.handleChange}
             />
           )} />
           <Route path='/community/advice' render={(props) => (

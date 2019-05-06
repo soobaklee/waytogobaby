@@ -31,12 +31,6 @@ class NeedAdviceForm extends Component {
         } catch (err) {
             this.props.updateMessage(err.message);
         }
-        // adviceService.createAdvice(this.state)
-        // .then((advice) => {
-        //     this.props.handleAddAdvice(advice);
-        //     this.props.history.push('/community/advice/:id')
-        // })
-        // .catch(err => this.props.updateMessage(err.message));
     }
 
     isFormInvalid() {

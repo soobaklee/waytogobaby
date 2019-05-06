@@ -9,12 +9,12 @@ router.get('/', advicesCtrl.index);
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below
 router.use(require('../../config/auth'));
+// router.get('/new', checkAuth, advicesCtrl.new);
 router.post('/', checkAuth, advicesCtrl.create);
 router.get('/:id', checkAuth, advicesCtrl.show);
 
 
 /* GET users listing. */
-// router.get('/new', checkAuth, advicesCtrl.new);
 // router.post('/', checkAuth, advicesCtrl.create);
 // router.delete('/:id', checkAuth, advicesCtrl.delete);
 // router.get('/:id/edit', checkAuth, advicesCtrl.edit);

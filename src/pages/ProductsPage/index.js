@@ -28,7 +28,7 @@ class ProductsPage extends Component {
             <div className={`${styles.firstdiv}`}>
                 <div className={`${styles.div}`}>
                     {this.state.babyCat && this.state.babyCat.map((cat, idx) =>
-                        <div className={`${styles.ProductBox}`} key={`${idx}`}>
+                        <div className={`${styles.ProductBox}`} key={idx}>
                             <Link to={`/products/${idx}`}>
                                 <p>{cat.name}</p><br></br>
                                 <div className={`${styles.thumbnail}`}>
@@ -45,6 +45,7 @@ class ProductsPage extends Component {
             <Switch>
                 <Route exact path='/products' render={(props) => (
                     <div className='ProductsView'>
+                        
                         {productview}
                     </div>
                 )}

@@ -57,7 +57,6 @@ class AdvicePagePartial extends React.Component {
                 <div className={`${styles.adviceDiv}`}>
                     {adviceList}
                 </div>
-                <h3>Interested in more? Login or sign up to see the full discussion board.</h3>
             </div>
 
         return (

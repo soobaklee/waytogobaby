@@ -1,14 +1,30 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const shareSchema = new mongoose.Schema({
-    category: String,
-    name: String,
-    description: String,
-    photo: String,
-    creator: [{
+const commentSchema = new Schema({
+    content: String,
+    postedBy: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
     }]
+}, {
+    timestamps: true
+});
+
+const shareSchema = new Schema({
+    category: String,
+    title: String,
+    description: String,
+    photo: String,
+    postedBy: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    comments: [commentSchema],
+    given: {
+        type: Boolean,
+        default: false
+    },
 }, {
     timestamps: true
 });
