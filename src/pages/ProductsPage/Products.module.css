@@ -22,7 +22,7 @@
     width: 250px;
     justify-content: center;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     -webkit-box-decoration-break: clone;
     -o-box-decoration-break: clone;
     box-decoration-break: clone;

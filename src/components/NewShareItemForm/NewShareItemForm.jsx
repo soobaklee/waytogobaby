@@ -1,32 +1,44 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import shareService from '../../utils/shareService';
+
+
 class NewShareItemForm extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             id: '',
             category: '',
             title: '',
             description: '',
             photo: '',
-            creator: ''
+            postedBy: this.props.user,
         }
     }
 
+    handleChange = (e) => {
+        this.props.updateMessage('');
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
 
-    // handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         await adviceService.createAdvice(this.state);
-    //         this.props.handleAddAdvice();
-    //         this.props.history.push('/community/advice/:id');
-    //     } catch (err) {
-    //         this.props.updateMessage(err.message);
-    //     }
-    // }
+    handleSubmit = async (e) => {
+        var item = {
+            title: this.state.title,
+            description: this.state.description,
+            postedBy: this.props.user
+        };
+        shareService.createItem(item);
+        this.props.history.push('/');
+        this.setState({
+            title: '',
+            description: ''
+        })
+    }
 
     isFormInvalid() {
-        return !(this.state.title && this.state.content);
+        return !(this.state.title && this.state.description);
     }
 
     render() {

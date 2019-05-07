@@ -6,7 +6,7 @@ router.get('/', sharesCtrl.index);
 
 /*-----------Protected Routes-----------*/
 router.use(require('../../config/auth'));
-router.post('/', checkAuth, sharesCtrl.create);
+router.post('/create', checkAuth, sharesCtrl.create);
 router.post('/:id/comments', checkAuth, sharesCtrl.createComment);
 router.get('/:id', checkAuth, sharesCtrl.show);
 // router.delete('/:id', checkAuth, sharesCtrl.delete);

@@ -4,6 +4,7 @@ import adviceService from '../../utils/adviceService';
 import AdviceDetailPage from '../../pages/AdviceDetailPage';
 import styles from './AdvicePage.module.css';
 import moment from 'moment';
+import NeedAdviceForm from '../../components/NeedAdviceForm/NeedAdviceForm';
 
 class AdvicePage extends React.Component {
     constructor(props) {

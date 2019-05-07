@@ -2,7 +2,8 @@ const babyKey = process.env.BABYPROD_KEY;
 const axios = require('axios');
 
 module.exports = {
-    index
+    index,
+    
 }
 
 async function index(req, res) {
@@ -11,8 +12,10 @@ async function index(req, res) {
         let response = await axios.get(`https://api.walmartlabs.com/v1/paginated/items?format=json&category=${cat}&apiKey=${babyKey}`)
         // console.log("response", response.data)
         res.json(response.data)
+        console.log('*****yoyoyoyoyoyo')
     }
     catch(error){
         console.error("error", error);
     }
 }
+

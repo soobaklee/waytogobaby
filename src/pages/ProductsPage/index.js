@@ -6,12 +6,12 @@ import styles from './Products.module.css';
 import ProductDetailPage from '../ProductDetailPage';
 
 class ProductsPage extends Component {
-    constructor() {
-        super();
-        this.state = {
-            
-        }
+    // constructor() {
+    //     super();
+    state = {
+        babyCat: []
     }
+    // }
 
     async componentDidMount() {
         const user = userService.getUser();
@@ -19,7 +19,7 @@ class ProductsPage extends Component {
         this.setState({
             user,
             babyCat: allBabyProdCat.items,
-        })
+        });
     }
 
 
@@ -27,39 +27,55 @@ class ProductsPage extends Component {
         let productview =
             <div className={`${styles.firstdiv}`}>
                 <div className={`${styles.div}`}>
-                    {this.state.babyCat && this.state.babyCat.map((cat, idx) =>
-                        <div className={`${styles.ProductBox}`} key={idx}>
-                            <Link to={`/products/${idx}`}>
+                    {this.state.babyCat.map((cat, idx) =>
+                        <Link to={`/products/${idx}`} key={idx}>
+                            <div className={`${styles.ProductBox}`} >
                                 <p>{cat.name}</p><br></br>
                                 <div className={`${styles.thumbnail}`}>
                                     <img src={`${cat.thumbnailImage}`} alt={`${cat.name}`} ></img>
                                 </div>
                                 <h4>msrp: ${cat.msrp}</h4>
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                     )}
                 </div>
             </div>
 
         return (
             <Switch>
-                <Route exact path='/products' render={(props) => (
-                    <div className='ProductsView'>
-                        
-                        {productview}
+                <Route exact path='/products' render={() => (
+                    <div className={`${styles.ProductsView}`}>
+                        {/* <div className={`${styles.firstdiv}`}> */}
+                        <div className={`${styles.div}`}>
+                            {this.state.babyCat.map((cat, idx) =>
+                                <Link to={`/products/${idx}`} key={idx}>
+                                    <div className={`${styles.ProductBox}`} >
+                                        <p>{cat.name}</p><br></br>
+                                        <div className={`${styles.thumbnail}`}>
+                                            <img src={`${cat.thumbnailImage}`} alt={`${cat.name}`} ></img>
+                                        </div>
+                                        <h4>msrp: ${cat.msrp}</h4>
+                                    </div>
+                                </Link>
+                            )}
+                        </div>
+                        {/* </div> */}
                     </div>
                 )}
                 />
                 <Route exact path='/products/:id' render={(props) => (
-                    <ProductDetailPage
-                        {...props}
-                        user={this.state.user}
-                        babyCat={this.state.babyCat}
-                    />
+                    <div>
+                        <h1>This is a product detail page</h1>
+                        <ProductDetailPage
+                            {...props}
+                            user={this.state.user}
+                            babyCat={this.state.babyCat}
+                        />
+                    </div>
                 )} />
             </Switch>
-            )
-        }
+        )
     }
-    
+}
+
 export default ProductsPage;

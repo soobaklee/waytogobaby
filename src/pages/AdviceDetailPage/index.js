@@ -8,16 +8,16 @@ const AdviceDetailPage = props => {
     // console.log("Props in AdviceDetailPage", props)
     // console.log(props.match.params)
 
-    let advice = props.advice.filter(advice => {
+    let adviceLU = props.advice.filter(advice => {
         return advice._id === props.match.params.id
     })[0]
 
-    let adviceShow = advice ?
+    let adviceShow = adviceLU ?
         <div className={`${styles.content}`}>
             <h1>Join the discussion...</h1>
-            <h3>Shared by {advice.postedBy[0].name}, {moment(advice.postedBy[0].updatedAt).calendar()}</h3>
-            <h1>{advice.title}</h1>
-            <h3>{advice.content}</h3>
+            <h3>Shared by {adviceLU.postedBy[0].name}, {moment(adviceLU.postedBy[0].updatedAt).calendar()}</h3>
+            <h1>{adviceLU.title}</h1>
+            <h3>{adviceLU.content}</h3>
         </div>
         :
         <div>Waiting to Load</div>

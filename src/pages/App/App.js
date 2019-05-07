@@ -47,10 +47,13 @@ class App extends Component {
   handleChange = (e) => {
     this.props.updateMessage('');
     this.setState({
-        [e.target.name]: e.target.value
+      [e.target.name]: e.target.value
     });
-}
+  }
 
+  updateMessage = (msg) => {
+    this.setState({ message: msg });
+  }
 
   getAdviceById = (id) => {
     return this.state.advice.find(advice => advice.id === id);
@@ -86,14 +89,14 @@ class App extends Component {
           throw new Error('React LatLng Error');
         }));
 
-      
-      this.setState({
-        user,
-        lat,
-        lng,
-        temp: Math.round(weatherData.main.temp),
-        icon: weatherData.weather[0].icon,
-        city: weatherData.name,
+
+    this.setState({
+      user,
+      lat,
+      lng,
+      temp: Math.round(weatherData.main.temp),
+      icon: weatherData.weather[0].icon,
+      city: weatherData.name,
     })
   }
 
@@ -129,6 +132,7 @@ class App extends Component {
               user={this.state.user}
             />
           )} />
+
           <Route exact path='/community' render={(props) => (
             <CommunityPage
               {...props}
@@ -139,6 +143,7 @@ class App extends Component {
               city={this.state.city}
               user={this.state.user}
               handleChange={this.handleChange}
+              updateMessage={this.updateMessage}
             />
           )} />
           <Route exact path='/community/share' render={(props) => (
@@ -147,6 +152,7 @@ class App extends Component {
               user={this.state.user}
               handleSetFilter={this.handleSetFilter}
               handleChange={this.handleChange}
+              updateMessage={this.updateMessage}
             />
           )} />
           <Route path='/community/advice' render={(props) => (
